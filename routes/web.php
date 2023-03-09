@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\backend\DashboardController;
 use App\Http\Controllers\frontend\AboutController;
 use App\Http\Controllers\frontend\AccountController;
 use App\Http\Controllers\frontend\BlogController;
@@ -27,3 +28,8 @@ Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/myaccount', [AccountController::class, 'index'])->name('account');
 Route::get('/cart', [CartController::class, 'index'])->name('cart');
+
+
+//back
+
+Route::get('/dashboard', [DashboardController::class, 'index']);
