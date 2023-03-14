@@ -95,7 +95,7 @@
                         <h6>Download our Mobile Apps</h6>
                     </div>
                     <div class="apps_download">
-                        <a href="#"><img src="{{asset('assets/frontend/img/core-img/play-store.png') }}'" alt="Play Store"></a>
+                        <a href="#"><img src="{{asset('assets/frontend/img/core-img/play-store.png') }}" alt="Play Store"></a>
                         <a href="#"><img src="{{asset('assets/frontend/img/core-img/app-store.png') }}" alt="Apple Store"></a>
                     </div>
                 </div>

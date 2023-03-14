@@ -27,11 +27,6 @@
     <link rel="stylesheet" href="{{asset('assets/frontend/css/fontawesome-all.min.css') }}">
     <link rel="stylesheet" href="{{asset('assets/frontend/css/icofont.min.css') }}">
 
-    <link rel="stylesheet" href="{{asset('assets/frontend/fonts/icofont.woff2') }}">
-    <link rel="stylesheet" href="{{asset('assets/frontend/fonts/icofont.woff') }}">
-    <link rel="stylesheet" href="{{asset('assets/frontend/webfonts/fa-solid-900.tt') }}">
-
-
     <!-- Style CSS -->
     <link rel="stylesheet" href="{{asset('assets/frontend/css/style.css') }}">
 
