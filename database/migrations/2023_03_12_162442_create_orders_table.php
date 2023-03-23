@@ -26,6 +26,7 @@ class CreateOrdersTable extends Migration
             $table->decimal('shipping_fee', 8, 2)->default(0.00);
             $table->decimal('total', 8, 2)->default(0.00); //amount with shipping fees
             $table->enum('status', ['pending', 'processing', 'shipped', 'delivered', 'cancelled'])->default('pending');
+
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('vendor_id')->references('id')->on('users');
             $table->foreign('delivery_method_id')->references('id')->on('delivery_methods');

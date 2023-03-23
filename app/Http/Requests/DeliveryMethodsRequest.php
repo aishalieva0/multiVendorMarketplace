@@ -24,7 +24,9 @@ class DeliveryMethodsRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title'=>'required|string',
+            'description'=>'nullable',
+            'price'=>'nullable'
         ];
     }
 }

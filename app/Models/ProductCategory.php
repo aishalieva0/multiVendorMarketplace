@@ -9,5 +9,13 @@ class ProductCategory extends Model
 {
     use HasFactory;
 
+<<<<<<< HEAD
     protected $fillable = ['title', 'status'];
+=======
+    protected $fillable=[
+        'title'
+    ];
+
+
+>>>>>>> aisha
 }

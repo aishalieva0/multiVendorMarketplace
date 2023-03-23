@@ -27,7 +27,6 @@
     <link rel="stylesheet" href="{{asset('assets/frontend/css/fontawesome-all.min.css') }}">
     <link rel="stylesheet" href="{{asset('assets/frontend/css/icofont.min.css') }}">
 
-
     <!-- Style CSS -->
     <link rel="stylesheet" href="{{asset('assets/frontend/css/style.css') }}">
 

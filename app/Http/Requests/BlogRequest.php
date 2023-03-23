@@ -24,7 +24,23 @@ class BlogRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => 'required|string',
+            'description' => 'nullable',
+            'content' => 'nullable',
+            'image' => 'nullable|image|max:2048',
+            'url' => 'nullable',
+            'cat_id' => 'nullable',
+            'status' => 'nullable'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'title.required' => 'Please enter a title.',
+            'title.string' => 'The title must be a string.',
+            'image.image' => 'The file must be an image.',
+            'image.max' => 'The file size must be less than :max kilobytes.',
         ];
     }
 }

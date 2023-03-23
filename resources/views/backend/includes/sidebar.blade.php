@@ -1,3 +1,14 @@
+<style>
+    .my-nav-item .nav-link i {
+        margin-right: 5px;
+    }
+
+    .my-nav-item .nav-link p {
+        margin-left: 5px;
+    }
+
+</style>
+
 <div class="wrapper">
 
     <!-- Navbar -->
@@ -45,20 +56,45 @@
                     data-accordion="false">
                     <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
-                    <li class="nav-item menu-open">
 
+                    <!-- only visible admins -->
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-edit"></i>
+                            <p>
+                                Website settings
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
                         <ul class="nav nav-treeview">
-
                             <li class="nav-item">
+<<<<<<< HEAD
                                 <a href="{{asset('sliders')}}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Sliders</p>
+=======
+                                <a href="#" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Slider</p>
                                 </a>
                             </li>
-
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Banner</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="pages/forms/editors.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Setting</p>
+>>>>>>> aisha
+                                </a>
+                            </li>
                         </ul>
                     </li>
 
+<<<<<<< HEAD
                     <li class="nav-item menu-open">
 
                         <ul class="nav nav-treeview">
@@ -79,10 +115,137 @@
 
                             <li class="nav-item">
                                 <a href="{{asset('brands')}}" class="nav-link">
+=======
+                    <!-- only visible admins -->
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-edit"></i>
+                            <p>
+                                Blog settings
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Blogs</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Blog categories</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- only visible admins -->
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-edit"></i>
+                            <p>
+                                Admin control
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Admins</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Users</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Vendors</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Roles</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Permissions</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- only visible admins -->
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-edit"></i>
+                            <p>
+                                Contact with buyers
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Contact</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Subscriptions</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                    <!-- only visible admins -->
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-edit"></i>
+                            <p>
+                                Shop settings
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Delivery methods</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Payment methods</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Product categories</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+>>>>>>> aisha
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Brands</p>
                                 </a>
                             </li>
+<<<<<<< HEAD
 
                         </ul>
                     </li>
@@ -93,10 +256,66 @@
 
                             <li class="nav-item">
                                 <a href="{{asset('images')}}" class="nav-link">
+=======
+                        </ul>
+                    </li>
+
+                    <!-- only visible admins -->
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-edit"></i>
+                            <p>
+                                Vendor control
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Products</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Orders</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                    <!-- only visible vendors -->
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-edit"></i>
+                            <p>
+                               My shop
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Products</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="pages/forms/editors.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Orders</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="pages/forms/editors.html" class="nav-link">
+>>>>>>> aisha
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Images</p>
                                 </a>
                             </li>
+<<<<<<< HEAD
 
                         </ul>
                     </li>
@@ -140,10 +359,21 @@
                                 </a>
                             </li>
 
+=======
+>>>>>>> aisha
                         </ul>
                     </li>
 
 
+<<<<<<< HEAD
+=======
+
+
+
+
+
+
+>>>>>>> aisha
 
                 </ul>
             </nav>
