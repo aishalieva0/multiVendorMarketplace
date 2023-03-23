@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\backend;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\BlogCategoriesRequest;
 use App\Models\BlogCategory;
-use Illuminate\Http\Request;
 
 class BlogCategoriesController extends Controller
 {

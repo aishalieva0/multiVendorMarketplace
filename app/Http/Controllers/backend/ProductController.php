@@ -7,7 +7,6 @@ use App\Http\Requests\ProductsRequest;
 use App\Models\Brand;
 use App\Models\Product;
 use App\Models\ProductCategory;
-use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {

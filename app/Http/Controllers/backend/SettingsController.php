@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\backend;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\SettingsRequest;
 use App\Models\Setting;
 use Illuminate\Http\Request;

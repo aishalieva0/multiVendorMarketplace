@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\backend;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\SlidersRequest;
 use App\Models\Slider;
-use Illuminate\Http\Request;
 
 class SliderController extends Controller
 {

@@ -68,54 +68,27 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-<<<<<<< HEAD
-                                <a href="{{asset('sliders')}}" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Sliders</p>
-=======
-                                <a href="#" class="nav-link">
+                                <a href="{{ asset('sliders') }}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Slider</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="{{ asset('banners') }}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Banner</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="pages/forms/editors.html" class="nav-link">
+                                <a href="{{ asset('settings') }}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Setting</p>
->>>>>>> aisha
                                 </a>
                             </li>
                         </ul>
                     </li>
 
-<<<<<<< HEAD
-                    <li class="nav-item menu-open">
 
-                        <ul class="nav nav-treeview">
-
-                            <li class="nav-item">
-                                <a href="{{asset('banners')}}" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Banners</p>
-                                </a>
-                            </li>
-
-                        </ul>
-                    </li>
-
-                    <li class="nav-item menu-open">
-
-                        <ul class="nav nav-treeview">
-
-                            <li class="nav-item">
-                                <a href="{{asset('brands')}}" class="nav-link">
-=======
                     <!-- only visible admins -->
                     <li class="nav-item">
                         <a href="#" class="nav-link">
@@ -127,13 +100,13 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="{{ asset('blogs') }}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Blogs</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="{{ asset('blog_categories') }}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Blog categories</p>
                                 </a>
@@ -170,13 +143,13 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="{{ asset('roles') }}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Roles</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="{{ asset('permissions') }}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Permissions</p>
                                 </a>
@@ -195,7 +168,7 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="{{ asset('contact') }}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Contact</p>
                                 </a>
@@ -221,44 +194,35 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="{{ asset('delivery_methods') }}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Delivery methods</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="{{ asset('payment_methods') }}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Payment methods</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="{{ asset('product_categories') }}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Product categories</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
->>>>>>> aisha
+                                <a href="{{ asset('brands') }}" class="nav-link">
+
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Brands</p>
                                 </a>
                             </li>
-<<<<<<< HEAD
+
 
                         </ul>
                     </li>
 
-                    <li class="nav-item menu-open">
-
-                        <ul class="nav nav-treeview">
-
-                            <li class="nav-item">
-                                <a href="{{asset('images')}}" class="nav-link">
-=======
-                        </ul>
-                    </li>
 
                     <!-- only visible admins -->
                     <li class="nav-item">
@@ -271,13 +235,13 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="{{ asset('products') }}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Products</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="{{ asset('orders') }}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Orders</p>
                                 </a>
@@ -291,89 +255,36 @@
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-edit"></i>
                             <p>
-                               My shop
+                                My shop
                                 <i class="fas fa-angle-left right"></i>
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="{{ asset('products') }}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Products</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="pages/forms/editors.html" class="nav-link">
+                                <a href="{{ asset('orders') }}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Orders</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="pages/forms/editors.html" class="nav-link">
->>>>>>> aisha
+                                <a href="{{ asset('images') }}" class="nav-link">
+
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Images</p>
                                 </a>
                             </li>
-<<<<<<< HEAD
+
 
                         </ul>
                     </li>
 
-                    <li class="nav-item menu-open">
 
-                        <ul class="nav nav-treeview">
-
-                            <li class="nav-item">
-                                <a href="{{asset('settings')}}" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Settings</p>
-                                </a>
-                            </li>
-
-                        </ul>
-                    </li>
-
-                    <li class="nav-item menu-open">
-
-                        <ul class="nav nav-treeview">
-
-                            <li class="nav-item">
-                                <a href="{{asset('blog_categories')}}" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Blog Categories</p>
-                                </a>
-                            </li>
-
-                        </ul>
-                    </li>
-
-                    <li class="nav-item menu-open">
-
-                        <ul class="nav nav-treeview">
-
-                            <li class="nav-item">
-                                <a href="{{asset('product_categories')}}" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Product Categories</p>
-                                </a>
-                            </li>
-
-=======
->>>>>>> aisha
-                        </ul>
-                    </li>
-
-
-<<<<<<< HEAD
-=======
-
-
-
-
-
-
->>>>>>> aisha
 
                 </ul>
             </nav>

@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\backend;
 
-use App\Http\Requests\ImagesRequest;
+use App\Http\Controllers\Controller;
 use App\Models\Image;
-use Illuminate\Http\Request;
 
 class ImagesController extends Controller
 {

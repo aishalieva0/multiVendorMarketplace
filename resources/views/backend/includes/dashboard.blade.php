@@ -36,7 +36,7 @@
                         <div class="icon">
                             <i class="fa fa-pencil-alt" style="color: #fff;"></i>
                         </div>
-                        <a href="#" class="small-box-footer" style="color: #fff;">More info <i
+                        <a href="{{ asset('blogs') }}" class="small-box-footer" style="color: #fff;">More info <i
                                 class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>

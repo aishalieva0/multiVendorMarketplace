@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\backend;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\BannersRequest;
 use App\Models\Banner;
-use Illuminate\Http\Request;
 
 class BannerController extends Controller
 {
