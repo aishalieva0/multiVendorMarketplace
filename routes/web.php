@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\backend\DashboardController;
+use App\Http\Controllers\BannerController;
+use App\Http\Controllers\BlogCategoriesController;
+use App\Http\Controllers\BrandsController;
 use App\Http\Controllers\frontend\AboutController;
 use App\Http\Controllers\frontend\AccountController;
 use App\Http\Controllers\frontend\BlogController;
@@ -8,6 +11,10 @@ use App\Http\Controllers\frontend\CartController;
 use App\Http\Controllers\frontend\ContactController;
 use App\Http\Controllers\frontend\HomeController;
 use App\Http\Controllers\frontend\ShopController;
+use App\Http\Controllers\ImagesController;
+use App\Http\Controllers\ProductCategoriesController;
+use App\Http\Controllers\SettingsController;
+use App\Http\Controllers\SliderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,6 +27,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 //front
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/shop', [ShopController::class, 'index'])->name('shop');
@@ -31,5 +39,10 @@ Route::get('/cart', [CartController::class, 'index'])->name('cart');
 
 
 //back
-
-Route::get('/dashboard', [DashboardController::class, 'index']);
+Route::resource('/sliders', SliderController::class);
+Route::resource('/banners',BannerController::class );
+Route::resource('/brands', BrandsController::class);
+Route::resource('/images', ImagesController::class);
+Route::resource('/settings', SettingsController::class);
+Route::resource('/blog_categories', BlogCategoriesController::class);
+Route::resource('/product_categories', ProductCategoriesController::class);

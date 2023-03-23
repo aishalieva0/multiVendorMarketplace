@@ -2,6 +2,6 @@
 
 @section('content')
 
-    @include('backend.includes.dashboard')
+    @include('backend.pages.dashboard')
 
 @endsection

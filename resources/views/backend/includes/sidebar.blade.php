@@ -50,14 +50,99 @@
                         <ul class="nav nav-treeview">
 
                             <li class="nav-item">
-                                <a href="{{asset('admin')}}" class="nav-link">
+                                <a href="{{asset('sliders')}}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Admin</p>
+                                    <p>Sliders</p>
                                 </a>
                             </li>
 
                         </ul>
                     </li>
+
+                    <li class="nav-item menu-open">
+
+                        <ul class="nav nav-treeview">
+
+                            <li class="nav-item">
+                                <a href="{{asset('banners')}}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Banners</p>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li class="nav-item menu-open">
+
+                        <ul class="nav nav-treeview">
+
+                            <li class="nav-item">
+                                <a href="{{asset('brands')}}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Brands</p>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li class="nav-item menu-open">
+
+                        <ul class="nav nav-treeview">
+
+                            <li class="nav-item">
+                                <a href="{{asset('images')}}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Images</p>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li class="nav-item menu-open">
+
+                        <ul class="nav nav-treeview">
+
+                            <li class="nav-item">
+                                <a href="{{asset('settings')}}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Settings</p>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li class="nav-item menu-open">
+
+                        <ul class="nav nav-treeview">
+
+                            <li class="nav-item">
+                                <a href="{{asset('blog_categories')}}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Blog Categories</p>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li class="nav-item menu-open">
+
+                        <ul class="nav nav-treeview">
+
+                            <li class="nav-item">
+                                <a href="{{asset('product_categories')}}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Product Categories</p>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+
 
 
                 </ul>
