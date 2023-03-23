@@ -1,6 +1,13 @@
 <?php
 
 use App\Http\Controllers\backend\DashboardController;
+use App\Http\Controllers\backend\DeliveryMethodController;
+use App\Http\Controllers\backend\OrderController;
+use App\Http\Controllers\backend\OrderStatusController;
+use App\Http\Controllers\backend\PaymentMethodController;
+use App\Http\Controllers\backend\PermissonController;
+use App\Http\Controllers\backend\ProductController;
+use App\Http\Controllers\backend\RoleController;
 use App\Http\Controllers\frontend\AboutController;
 use App\Http\Controllers\frontend\AccountController;
 use App\Http\Controllers\frontend\BlogController;
@@ -33,3 +40,12 @@ Route::get('/cart', [CartController::class, 'index'])->name('cart');
 //back
 
 Route::get('/dashboard', [DashboardController::class, 'index']);
+
+Route::resource('/order_status', OrderStatusController::class);
+Route::resource('/orders', OrderController::class);
+Route::resource('/products', ProductController::class);
+Route::resource('/payment_methods', PaymentMethodController::class);
+Route::resource('/delivery_methods', DeliveryMethodController::class);
+Route::resource('/permissions', PermissonController::class);
+Route::resource('/roles', RoleController::class);
+Route::resource('/blogs', \App\Http\Controllers\backend\BlogController::class);

@@ -3,12 +3,15 @@
 namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Models\Blog;
 
 class DashboardController extends Controller
 {
     public function index()
     {
-        return view('backend.sections.index');
+
+        $blog_count = Blog::where('status', '1')->count();
+
+        return view('backend.sections.index',compact('blog_count'));
     }
 }

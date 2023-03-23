@@ -24,7 +24,21 @@ class ProductsRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => 'required|string',
+            'overview' =>'nullable',
+            'description'=>'required|string',
+            'image'=>'nullable',
+            'badge'=>'nullable',
+            'quantity'=>'nullable',
+            'price'=>'nullable',
+            'offer'=>'nullable',
+            'sale_price'=>'nullable',
+            'stock_count'=>'nullable',
+            'vendor_id'=>'required',
+            'cat_id'=>'required',
+            'brand_id'=>'required',
+            'url'=>'nullable',
+            'status'=>'nullable'
         ];
     }
 }

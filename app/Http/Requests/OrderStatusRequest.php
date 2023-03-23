@@ -24,7 +24,9 @@ class OrderStatusRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'order_id' => 'required',
+            'status' => 'required',
+            'notes' => 'nullable'
         ];
     }
 }
