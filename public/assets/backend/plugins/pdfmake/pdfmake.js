@@ -18423,7 +18423,7 @@ var PDFFontFactory = /*#__PURE__*/function () {
 
 var FontsMixin = {
   initFonts: function initFonts() {
-    var defaultFont = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'Helvetica'; // Lookup table for embedded webfonts
+    var defaultFont = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'Helvetica'; // Lookup table for embedded fonts
 
     this._fontFamilies = {};
     this._fontCount = 0; // Font state
@@ -18442,7 +18442,7 @@ var FontsMixin = {
     if (typeof family === 'number') {
       size = family;
       family = null;
-    } // check registered webfonts if src is a string
+    } // check registered fonts if src is a string
 
 
     if (typeof src === 'string' && this._registeredFonts[src]) {
@@ -19334,7 +19334,7 @@ var TextMixin = {
     } // Add the actual text
     // If we have a word spacing value, we need to encode each word separately
     // since the normal Tw operator only works on character code 32, which isn't
-    // used for embedded webfonts.
+    // used for embedded fonts.
 
 
     if (wordSpacing) {
@@ -20739,7 +20739,7 @@ var AcroFormMixin = {
 
     if (this._root.data.AcroForm) {
       if (!Object.keys(this._acroform.fonts).length && !this._acroform.defaultFont) {
-        throw new Error('No webfonts specified for PDF form');
+        throw new Error('No fonts specified for PDF form');
       }
 
       var fontDict = this._root.data.AcroForm.data.DR.Font;
@@ -26348,7 +26348,7 @@ var SVGtoPDF = function SVGtoPDF(doc, svg, x, y, options) {
         if (doc._registeredFonts.hasOwnProperty(family)) {
           return family;
         }
-      } // Use standard webfonts as fallback
+      } // Use standard fonts as fallback
 
 
       if (family.match(/(?:^|,)\s*serif\s*$/)) {
@@ -56703,7 +56703,7 @@ var hhea = new r.Struct({
   caretSlopeRun: r.int16,
   // 0 for vertical
   caretOffset: r.int16,
-  // Set to 0 for non-slanted webfonts
+  // Set to 0 for non-slanted fonts
   reserved: new r.Reserved(r.int16, 4),
   metricDataFormat: r.int16,
   // 0 for current format
@@ -58536,7 +58536,7 @@ var CFFFont = /*#__PURE__*/function () {
     // CFF2 glyph names are in the post table.
     if (this.version >= 2) {
       return null;
-    } // CID-keyed webfonts don't have glyph names
+    } // CID-keyed fonts don't have glyph names
 
 
     if (this.isCIDFont) {
@@ -59583,7 +59583,7 @@ var LTSH = new r.Struct({
   version: r.uint16,
   numGlyphs: r.uint16,
   yPels: new r.Array(r.uint8, 'numGlyphs')
-}); // NOTE: The PCLT table is strongly discouraged for OpenType webfonts with TrueType outlines
+}); // NOTE: The PCLT table is strongly discouraged for OpenType fonts with TrueType outlines
 
 var PCLT = new r.Struct({
   version: r.uint16,
@@ -59665,7 +59665,7 @@ var vhea = new r.Struct({
   // Caret slope (rise/run)
   caretSlopeRun: r.int16,
   caretOffset: r.int16,
-  // Set value equal to 0 for nonslanted webfonts
+  // Set value equal to 0 for nonslanted fonts
   reserved: new r.Reserved(r.int16, 4),
   metricDataFormat: r.int16,
   // Set to 0
@@ -64980,7 +64980,7 @@ function initialReordering(font, glyphs, plan) {
             glyphs[_i16++].features.pref = true;
           } // Mark the subsequent stuff with 'cfar'.  Used in Khmer.
           // Read the feature spec.
-          // This allows distinguishing the following cases with MS Khmer webfonts:
+          // This allows distinguishing the following cases with MS Khmer fonts:
           // U+1784,U+17D2,U+179A,U+17D2,U+1782
           // U+1784,U+17D2,U+1782,U+17D2,U+179A
 
@@ -65180,7 +65180,7 @@ function finalReordering(font, glyphs, plan) {
         //     position is found, this is the target position. Otherwise,
         //     proceed to the next step.
         //
-        //     Note: in old-implementation webfonts, where classifications were
+        //     Note: in old-implementation fonts, where classifications were
         //     fixed in shaping engine, there was no case where reph position
         //     will be found on this step.
         newRephPos = start + 1;
@@ -69240,7 +69240,7 @@ var TTFSubset = /*#__PURE__*/function (_Subset) {
     // tables required by PDF spec:
     //   head, hhea, loca, maxp, cvt , prep, glyf, hmtx, fpgm
     //
-    // additional tables required for standalone webfonts:
+    // additional tables required for standalone fonts:
     //   name, cmap, OS/2, post
     this.glyf = [];
     this.offset = 0;
@@ -76316,10 +76316,10 @@ var findFont = function (fonts, requiredFonts, defaultFont) {
  * @example
  * var fontDescriptors = {
  *	Roboto: {
- *		normal: 'webfonts/Roboto-Regular.ttf',
- *		bold: 'webfonts/Roboto-Medium.ttf',
- *		italics: 'webfonts/Roboto-Italic.ttf',
- *		bolditalics: 'webfonts/Roboto-MediumItalic.ttf'
+ *		normal: 'fonts/Roboto-Regular.ttf',
+ *		bold: 'fonts/Roboto-Medium.ttf',
+ *		italics: 'fonts/Roboto-Italic.ttf',
+ *		bolditalics: 'fonts/Roboto-MediumItalic.ttf'
  *	}
  * };
  *

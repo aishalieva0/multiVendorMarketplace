@@ -22,7 +22,12 @@ use App\Http\Controllers\frontend\CartController;
 use App\Http\Controllers\frontend\ContactController;
 use App\Http\Controllers\frontend\HomeController;
 use App\Http\Controllers\frontend\ShopController;
+use App\Http\Controllers\vendor\VendorController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+
+
+
 
 
 //back
@@ -46,10 +51,16 @@ Route::resource('blogs', \App\Http\Controllers\backend\BlogController::class);
 
 
 //front
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('shop', [ShopController::class, 'index'])->name('shop');
 Route::get('blog', [BlogController::class, 'index'])->name('blog');
 Route::get('contact', [ContactController::class, 'index'])->name('contact');
 Route::get('about', [AboutController::class, 'index'])->name('about');
 Route::get('myaccount', [AccountController::class, 'index'])->name('account');
 Route::get('cart', [CartController::class, 'index'])->name('cart');
+
+
+Auth::routes();
+
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home'); //user logged
+//Route::get('/vendor', [VendorController::class, 'index'])->name('vendor'); //vender logged

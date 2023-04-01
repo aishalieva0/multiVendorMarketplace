@@ -6,12 +6,13 @@
 * @license - https://icofont.com/license/
 */
 @font-face {
-  font-family: IcoFont;
-  font-weight: 400;
-  font-style: Regular;
-  src: url(../../fonts/icofont.woff2) format("woff2"),
-    url(../../fonts/icofont.woff) format("woff");
+    font-family: IcoFont;
+    font-weight: 400;
+    font-style: Regular;
+    src: url(../fonts/icofont.ttf) format("truetype"),
+    url(../fonts/icofont.eot) format("embedded-opentype");
 }
+
 [class*=" icofont-"],
 [class^="icofont-"] {
   font-family: IcoFont !important;

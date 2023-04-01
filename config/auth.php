@@ -36,9 +36,15 @@ return [
     */
 
     'guards' => [
-        'web' => [
+
+        'user' => [
             'driver' => 'session',
             'provider' => 'users',
+        ],
+
+        'vendor' => [
+            'driver' => 'session',
+            'provider' => 'vendors',
         ],
 
         'api' => [
@@ -71,11 +77,12 @@ return [
             'model' => App\Models\User::class,
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        'vendors' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Vendor::class,
+        ],
     ],
+
 
     /*
     |--------------------------------------------------------------------------
@@ -99,6 +106,13 @@ return [
             'expire' => 60,
             'throttle' => 60,
         ],
+
+        'vendors' => [
+            'provider' => 'vendors',
+            'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
     ],
 
     /*
@@ -113,5 +127,6 @@ return [
     */
 
     'password_timeout' => 10800,
+
 
 ];

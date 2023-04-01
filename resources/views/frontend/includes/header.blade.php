@@ -9,12 +9,14 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title  -->
-    <title>Bigshop E-commerce</title>
+    <title>Marketplace E-commerce</title>
 
     <!-- Favicon  -->
-    <link rel="icon" href="{{asset('assets/frontend/img/core-img/favicon.ico') }}">
+    {{--    <link rel="icon" href="{{asset('assets/frontend/img/core-img/favicon.ico') }}">--}}
+
 
     <link src="http://maxcdn.bootstrapcdn.com/font-awesome/5.0.6/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 
     <link rel="stylesheet" href="{{asset('assets/frontend/css/bootstrap.min.css') }}">
@@ -24,11 +26,29 @@
     <link rel="stylesheet" href="{{asset('assets/frontend/css/animate.css') }}">
     <link rel="stylesheet" href="{{asset('assets/frontend/css/jquery-ui.min.css') }}">
     <link rel="stylesheet" href="{{asset('assets/frontend/css/magnific-popup.css') }}">
-    <link rel="stylesheet" href="{{asset('assets/frontend/css/fontawesome-all.min.css') }}">
+    {{--    <link rel="stylesheet" href="{{asset('assets/frontend/css/fontawesome-all.min.css') }}">--}}
     <link rel="stylesheet" href="{{asset('assets/frontend/css/icofont.min.css') }}">
 
     <!-- Style CSS -->
     <link rel="stylesheet" href="{{asset('assets/frontend/css/style.css') }}">
+
+    {{--    <link href="{{asset('assets/frontend/js/bootstrap.min.js') }}">--}}
+    {{--    <link href="{{asset('assets/frontend/js/jquery.min.js') }}">--}}
+
+    <style>
+        /* Center the text in the dropdown menu */
+        .user-meta-dropdown {
+            width: 200px;
+            height: auto;
+            text-align: center;
+        }
+
+        .user-meta-dropdown li {
+            display: block;
+            text-align: center;
+        }
+    </style>
+
 
 </head>
 
@@ -46,7 +66,7 @@
                             <span class="popover--text" data-toggle="popover"
                                   data-content="Welcome to Bigshop ecommerce template."><i
                                     class="icofont-info-square"></i></span>
-                        <span class="text">Welcome to Bigshop</span>
+                        <span class="text">Welcome to Marketplace</span>
                     </div>
                 </div>
                 <div class="col-6">
@@ -201,18 +221,61 @@
                         </div>
 
                         <!-- Account -->
+                        <!-- when logged in -->
                         <div class="account-area">
-                            <div class="user-thumbnail">
-                                <img src="{{asset('assets/frontend/img/bg-img/user.jpg') }}" alt="">
-                            </div>
-                            <ul class="user-meta-dropdown">
-                                <li class="user-title"><span>Hello,</span> Lim Sarah</li>
-                                <li><a href="my-account.html">My Account</a></li>
-                                <li><a href="order-list.html">Orders List</a></li>
-                                <li><a href="wishlist.html">Wishlist</a></li>
-                                <li><a href="login.html"><i class="icofont-logout"></i> Logout</a></li>
-                            </ul>
+                            @auth
+                                <div class="user-thumbnail">
+                                    <i class="icofont-user-alt-5"></i>
+                                </div>
+                                <ul class="user-meta-dropdown">
+                                    <li class="user-title"><span>Hello,</span>
+                                        @if(Auth::user()->role_id == 3)
+                                            {{ Auth::user()->name }}
+                                        @elseif(Auth::user()->role_id == 2)
+                                            {{ Auth::guard('vendor')->name}}
+                                        @endif
+                                    </li>
+                                    <li><a href="{{ asset('myaccount') }}">My Account</a></li>
+                                    <li><a href="#">Orders List</a></li>
+                                    <li><a href="#">Wishlist</a></li>
+                                    <li>
+                                        <form action="{{ route('logout') }}" method="POST">
+                                            @csrf
+                                            <button type="submit" class="btn btn-link"><i class="icofont-logout"></i>
+                                                Logout
+                                            </button>
+                                        </form>
+                                    </li>
+                                </ul>
+                            @else
+                                <!-- guest -->
+                                <div class="user-thumbnail">
+                                    <i class="icofont-user-alt-7"></i>
+                                </div>
+
+
+                                {{--                                <ul class="user-meta-dropdown">--}}
+                                {{--                                    <li><a href="{{ route('login') }}" class="mr-2">Login</a></li>--}}
+                                {{--                                    <li><a href="{{ route('register') }}">Register</a></li>--}}
+                                {{--                                </ul>--}}
+
+                                <div class="user-meta-dropdown">
+                                    <a href="{{ route('login') }}" class="mr-2">Login</a>
+                                    <a href="{{ route('register') }}">Register</a>
+                                </div>
+
+                                {{--                                <div class="classynav">--}}
+                                {{--                                    <ul>--}}
+                                {{--                                        <li><a href="{{route('contact')}}">Log in</a></li>--}}
+
+                                {{--                                        <li><a href="{{route('about')}}">Sign up</a></li>--}}
+                                {{--                                    </ul>--}}
+                                {{--                                </div>--}}
+
+                            @endauth
                         </div>
+
+
                     </div>
                 </nav>
             </div>
