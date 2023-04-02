@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','role_id'
+        'name', 'surname', 'email', 'password', 'role_id'
     ];
 
     /**
@@ -37,12 +37,15 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function roles(){
+    public function roles()
+    {
 
         return $this->belongsToMany(Role::class);
 
     }
-    public function permissions(){
+
+    public function permissions()
+    {
 
         return $this->roles->map->permissions->flatten()->unique();
     }

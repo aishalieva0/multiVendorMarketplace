@@ -9,6 +9,7 @@ class AccountController extends Controller
 {
     public function index()
     {
+
         return view('frontend.pages.account_details');
     }
 }

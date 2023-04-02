@@ -11,4 +11,9 @@ class ShopController extends Controller
     {
         return view('frontend.pages.shop_list');
     }
+
+    public function categories()
+    {
+        return view('frontend.pages.product_categories');
+    }
 }

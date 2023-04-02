@@ -15,7 +15,7 @@ class Vendor extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','phone','address','city','role_id'
+        'name', 'surname', 'email', 'password', 'shop_name', 'phone', 'address', 'city', 'role_id'
     ];
 
     /**
@@ -36,12 +36,15 @@ class Vendor extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function roles(){
+    public function roles()
+    {
 
         return $this->belongsToMany(Role::class);
 
     }
-    public function permissions(){
+
+    public function permissions()
+    {
 
         return $this->roles->map->permissions->flatten()->unique();
     }

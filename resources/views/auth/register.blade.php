@@ -19,7 +19,10 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" name="name" placeholder="Full Name">
+                                <input type="text" class="form-control" name="name" placeholder="Name">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="surname" placeholder="Surname">
                             </div>
                             <div class="form-group">
                                 <input type="email" class="form-control" name="email" placeholder="Email">
@@ -34,6 +37,9 @@
 
                             <!-- additional fields for vendors -->
                             <div class="form-group" id="vendorFields" style="display:none;">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="shop_name" placeholder="Shop name">
+                                </div>
                                 <div class="form-group">
                                     <input type="text" class="form-control" name="phone" placeholder="Phone Number">
                                 </div>

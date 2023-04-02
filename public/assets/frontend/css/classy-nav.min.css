@@ -77,12 +77,12 @@
 }
 @font-face {
   font-family: classyfonts;
-  src: url(../../fonts/classy-fonts.eot?fftrrv);
-  src: url(../../fonts/classy-fonts.eot?fftrrv#iefix)
+  src: url(../../frontend/fonts/classy-fonts.eot?fftrrv);
+  src: url(../../frontend/fonts/classy-fonts.eot?fftrrv#iefix)
       format("embedded-opentype"),
-    url(../../fonts/classy-fonts.ttf?fftrrv) format("truetype"),
-    url(../../fonts/classy-fonts.woff?fftrrv) format("woff"),
-    url(../../fonts/classy-fonts.svg?fftrrv#classyfonts) format("svg");
+    url(../../frontend/fonts/classy-fonts.ttf?fftrrv) format("truetype"),
+    url(../../frontend/fonts/classy-fonts.woff?fftrrv) format("woff"),
+    url(../../frontend/fonts/classy-fonts.svg?fftrrv#classyfonts) format("svg");
 }
 .icon-classy-nav-down-arrow {
   font-family: classyfonts;

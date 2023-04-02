@@ -16,6 +16,8 @@
 
 
     <link src="http://maxcdn.bootstrapcdn.com/font-awesome/5.0.6/css/font-awesome.min.css" rel="stylesheet">
+
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 
@@ -26,14 +28,11 @@
     <link rel="stylesheet" href="{{asset('assets/frontend/css/animate.css') }}">
     <link rel="stylesheet" href="{{asset('assets/frontend/css/jquery-ui.min.css') }}">
     <link rel="stylesheet" href="{{asset('assets/frontend/css/magnific-popup.css') }}">
-    {{--    <link rel="stylesheet" href="{{asset('assets/frontend/css/fontawesome-all.min.css') }}">--}}
+    <link rel="stylesheet" href="{{asset('assets/frontend/css/fontawesome-all.min.css') }}">
     <link rel="stylesheet" href="{{asset('assets/frontend/css/icofont.min.css') }}">
 
     <!-- Style CSS -->
     <link rel="stylesheet" href="{{asset('assets/frontend/css/style.css') }}">
-
-    {{--    <link href="{{asset('assets/frontend/js/bootstrap.min.js') }}">--}}
-    {{--    <link href="{{asset('assets/frontend/js/jquery.min.js') }}">--}}
 
     <style>
         /* Center the text in the dropdown menu */
@@ -131,6 +130,23 @@
                             <ul>
                                 <li><a href="/">Home</a>
                                 </li>
+
+                                <li>
+                                    <a href="{{ route('product_cat') }}">Categories</a>
+                                    <div class="megamenu">
+                                        @php
+                                            $categories = $product_categories->chunk(4); // group the categories into rows
+                                        @endphp
+                                        @foreach($categories as $category_row)
+                                            <ul class="single-mega cn-col-4">
+                                                @foreach($category_row as $product_cat)
+                                                    <li><a href="#">- {{ $product_cat->title }}</a></li>
+                                                @endforeach
+                                            </ul>
+                                        @endforeach
+                                    </div>
+                                </li>
+
 
                                 <li><a href="{{route('shop')}}">Shop</a>
                                 </li>
@@ -230,9 +246,11 @@
                                 <ul class="user-meta-dropdown">
                                     <li class="user-title"><span>Hello,</span>
                                         @if(Auth::user()->role_id == 3)
-                                            {{ Auth::user()->name }}
-                                        @elseif(Auth::user()->role_id == 2)
-                                            {{ Auth::guard('vendor')->name}}
+                                            {{ Auth::guard('user')->user()->name }}
+                                        @endif
+
+                                        @if(Auth::user()->role_id == 2)
+                                            {{ Auth::guard('vendor')->user()->name}}
                                         @endif
                                     </li>
                                     <li><a href="{{ asset('myaccount') }}">My Account</a></li>
@@ -252,6 +270,10 @@
                                 <div class="user-thumbnail">
                                     <i class="icofont-user-alt-7"></i>
                                 </div>
+                                <div class="user-meta-dropdown">
+                                    <a href="{{ route('login') }}" class="mr-2">Login</a>
+                                    <a href="{{ route('register') }}">Register</a>
+                                </div>
 
 
                                 {{--                                <ul class="user-meta-dropdown">--}}
@@ -259,10 +281,6 @@
                                 {{--                                    <li><a href="{{ route('register') }}">Register</a></li>--}}
                                 {{--                                </ul>--}}
 
-                                <div class="user-meta-dropdown">
-                                    <a href="{{ route('login') }}" class="mr-2">Login</a>
-                                    <a href="{{ route('register') }}">Register</a>
-                                </div>
 
                                 {{--                                <div class="classynav">--}}
                                 {{--                                    <ul>--}}

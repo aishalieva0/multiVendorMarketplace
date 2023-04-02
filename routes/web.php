@@ -58,6 +58,7 @@ Route::get('contact', [ContactController::class, 'index'])->name('contact');
 Route::get('about', [AboutController::class, 'index'])->name('about');
 Route::get('myaccount', [AccountController::class, 'index'])->name('account');
 Route::get('cart', [CartController::class, 'index'])->name('cart');
+Route::get('product-category', [ShopController::class, 'categories'])->name('product_cat');
 
 
 Auth::routes();

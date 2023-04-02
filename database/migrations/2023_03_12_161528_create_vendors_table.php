@@ -18,6 +18,8 @@ class CreateVendorsTable extends Migration
             $table->unsignedBigInteger('role_id')->nullable();
             $table->foreign('role_id')->references('id')->on('roles');
             $table->string('name', 100);
+            $table->string('surname');
+            $table->string('shop_name')->unique();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

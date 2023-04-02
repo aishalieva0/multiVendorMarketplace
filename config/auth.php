@@ -14,8 +14,8 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'web',
-        'passwords' => 'users',
+        'guard' => ['user', 'vendor'], // set the default guards to 'user' and 'vendor'
+        'passwords' => 'users', // set the default password provider to 'users'
     ],
 
     /*
@@ -127,6 +127,5 @@ return [
     */
 
     'password_timeout' => 10800,
-
 
 ];
