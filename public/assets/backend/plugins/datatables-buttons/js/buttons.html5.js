@@ -590,7 +590,7 @@ var excelStrings = {
 				'<numFmt numFmtId="168" formatCode="#,##0;(#,##0)"/>'+
 				'<numFmt numFmtId="169" formatCode="#,##0.00;(#,##0.00)"/>'+
 			'</numFmts>'+
-			'<webfonts count="5" x14ac:knownFonts="1">'+
+			'<fonts count="5" x14ac:knownFonts="1">'+
 				'<font>'+
 					'<sz val="11" />'+
 					'<name val="Calibri" />'+
@@ -615,7 +615,7 @@ var excelStrings = {
 					'<name val="Calibri" />'+
 					'<u />'+
 				'</font>'+
-			'</webfonts>'+
+			'</fonts>'+
 			'<fills count="6">'+
 				'<fill>'+
 					'<patternFill patternType="none" />'+

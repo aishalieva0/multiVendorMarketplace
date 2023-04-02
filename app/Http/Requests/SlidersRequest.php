@@ -27,7 +27,7 @@ class SlidersRequest extends FormRequest
             'title' => 'required|string',
             'subtitle' => 'required|string',
             'price' => 'required',
-            'image' => 'required',
+            'image' => 'nullable',
             'button' => 'required|string',
             'status' => 'required'
         ];

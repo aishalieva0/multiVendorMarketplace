@@ -14,8 +14,8 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'web',
-        'passwords' => 'users',
+        'guard' => ['user', 'vendor'], // set the default guards to 'user' and 'vendor'
+        'passwords' => 'users', // set the default password provider to 'users'
     ],
 
     /*
@@ -36,9 +36,15 @@ return [
     */
 
     'guards' => [
-        'web' => [
+
+        'user' => [
             'driver' => 'session',
             'provider' => 'users',
+        ],
+
+        'vendor' => [
+            'driver' => 'session',
+            'provider' => 'vendors',
         ],
 
         'api' => [
@@ -71,11 +77,12 @@ return [
             'model' => App\Models\User::class,
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        'vendors' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Vendor::class,
+        ],
     ],
+
 
     /*
     |--------------------------------------------------------------------------
@@ -95,6 +102,13 @@ return [
     'passwords' => [
         'users' => [
             'provider' => 'users',
+            'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+
+        'vendors' => [
+            'provider' => 'vendors',
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,

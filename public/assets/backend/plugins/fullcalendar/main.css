@@ -86,7 +86,7 @@
       -ms-user-select: none;
           user-select: none;
 
-  /* use !important to prevent issues with browser extensions that change webfonts */
+  /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'fcicons' !important;
   speak: none;
   font-style: normal;

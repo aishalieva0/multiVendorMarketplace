@@ -9,7 +9,7 @@
                 <div class="col-12">
                     <h5>My Account</h5>
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
                         <li class="breadcrumb-item active">My Account</li>
                     </ol>
                 </div>
@@ -25,12 +25,10 @@
                 <div class="col-12 col-lg-3">
                     <div class="my-account-navigation mb-50">
                         <ul>
-                            <li><a href="my-account.html">Dashboard</a></li>
                             <li><a href="order-list.html">Orders</a></li>
-                            <li><a href="downloads.html">Downloads</a></li>
                             <li><a href="addresses.html">Addresses</a></li>
-                            <li class="active"><a href="account-details.html">Account Details</a></li>
-                            <li><a href="login.html">Logout</a></li>
+                            <li class="active"><a href="{{ route('account') }}">Account Details</a></li>
+                            <li><a href="{{ route('logout') }}">Logout</a></li>
                         </ul>
                     </div>
                 </div>
@@ -42,47 +40,82 @@
                             <div class="row">
                                 <div class="col-12 col-lg-6">
                                     <div class="form-group">
-                                        <label for="firstName">First Name *</label>
-                                        <input type="text" class="form-control" id="firstName" placeholder="MD NAZRUL">
+                                        <label for="name">First Name *</label>
+                                        <input type="text" class="form-control" id="name" name="name" value="{{Auth::guard('user')->user()->name}}"
+                                               placeholder="First Name">
                                     </div>
                                 </div>
                                 <div class="col-12 col-lg-6">
                                     <div class="form-group">
-                                        <label for="lastName">Last Name *</label>
-                                        <input type="text" class="form-control" id="lastName" placeholder="ISLAM">
+                                        <label for="surname">Last Name *</label>
+                                        <input type="text" class="form-control" id="surname" name="surname" value="{{Auth::guard('user')->user()->surname}}"
+                                               placeholder="Last Name">
                                     </div>
                                 </div>
+
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <label for="displayName">Display Name *</label>
-                                        <input type="text" class="form-control" id="displayName"
-                                               placeholder="Desinging World">
+                                        <label for="email">Email Address *</label>
+                                        <input type="email" class="form-control" id="email" name="email" value="{{Auth::guard('user')->user()->email}}"
+                                               placeholder="Email Address">
                                     </div>
                                 </div>
-                                <div class="col-12">
-                                    <div class="form-group">
-                                        <label for="emailAddress">Email Address *</label>
-                                        <input type="email" class="form-control" id="emailAddress"
-                                               placeholder="care.designingworld@gmail.com">
+
+
+                                <!-- additional fields for vendors -->
+                                @if(Auth::user()->role_id == 2)
+
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label for="shop_name">Shop Name *</label>
+                                            <input type="text" class="form-control" id="shop_name" name="shop_name"
+                                                   placeholder="Shop Name">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-group">
-                                        <label for="currentPass">Current Password (Leave blank to leave
-                                            unchanged)</label>
-                                        <input type="password" class="form-control" id="currentPass">
+
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label for="address">Address *</label>
+                                            <input type="text" class="form-control" id="address" name="address"
+                                                   placeholder="Address">
+                                        </div>
                                     </div>
-                                </div>
+
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label for="phone">Phone Number *</label>
+                                            <input type="text" class="form-control" id="phone" name="phone"
+                                                   placeholder="Phone Number">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label for="city">City *</label>
+                                            <input type="text" class="form-control" id="city" name="city"
+                                                   placeholder="City">
+                                        </div>
+                                    </div>
+
+                                @endif
+
+{{--                                <div class="col-12">--}}
+{{--                                    <div class="form-group">--}}
+{{--                                        <label for="currentPass">Current Password (Leave blank to leave--}}
+{{--                                            unchanged)</label>--}}
+{{--                                        <input type="password" class="form-control" id="currentPass" value="{{Auth::guard('user')->user()->password}}">--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <label for="newPass">New Password (Leave blank to leave unchanged)</label>
-                                        <input type="password" class="form-control" id="newPass">
+                                        <label for="password">New Password (Leave blank to leave unchanged)</label>
+                                        <input type="password" class="form-control" id="password" name="password" placeholder="New Password">
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group">
                                         <label for="confirmPass">Confirm New Password</label>
-                                        <input type="password" class="form-control" id="confirmPass">
+                                        <input type="password" class="form-control" id="confirmPass"  name="password_confirmation" placeholder="Confirm Password">
                                     </div>
                                 </div>
                                 <div class="col-12">
@@ -94,6 +127,7 @@
                 </div>
             </div>
         </div>
+
     </section>
     <!-- My Account Area -->
 

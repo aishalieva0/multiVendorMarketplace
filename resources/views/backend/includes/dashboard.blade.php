@@ -5,15 +5,9 @@
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <h1 class="m-0">Dashboard</h1>
-                </div><!-- /.col -->
-{{--                <div class="col-sm-6">--}}
-{{--                    <ol class="breadcrumb float-sm-right">--}}
-{{--                        <li class="breadcrumb-item"><a href="#">Home</a></li>--}}
-{{--                        <li class="breadcrumb-item active">Dashboard v1</li>--}}
-{{--                    </ol>--}}
-{{--                </div><!-- /.col -->--}}
-            </div><!-- /.row -->
-        </div><!-- /.container-fluid -->
+                </div>
+            </div>
+        </div>
     </div>
     <!-- /.content-header -->
 
@@ -24,11 +18,59 @@
             <!-- Small boxes (Stat box) -->
             <div class="row">
 
+                <!-- for Admins -->
+                <div class="col-lg-3 col-6">
+                    <div class="small-box"
+                         style="background: linear-gradient(to bottom right, #4b6cb7, rgba(0,143,94,0.94)); box-shadow: 0px 3px 20px rgba(255,236,28,0.45);">
+                        <div class="inner" style="font-family: 'Montserrat', sans-serif;">
+                            <h3 style="color: #fff;">{{$admin_count}}</h3>
+                            <p style="color: #fff;">Admins</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fas fa-user-tie" style="color: #fff;"></i>
+                        </div>
+                        <a href="#" class="small-box-footer" style="color: #fff;">More info <i
+                                class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- For customers -->
+                <div class="col-lg-3 col-6">
+                    <div class="small-box"
+                         style="background: linear-gradient(to bottom right, #9affd5, #f18f7a); box-shadow: 0px 3px 20px rgba(0,0,0,0.5);">
+                        <div class="inner" style="font-family: 'Montserrat', sans-serif;">
+                            <h3 style="color: #fff;">{{$customer_count}}</h3>
+                            <p style="color: #fff;">Customers</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fas fa-users" style="color: #fff;"></i>
+                        </div>
+                        <a href="#" class="small-box-footer" style="color: #fff;">More info <i
+                                class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+
+
+                <!-- For sellers -->
+                <div class="col-lg-3 col-6">
+                    <div class="small-box"
+                         style="background: linear-gradient(to bottom right, #0987f1, #770c0c); box-shadow: 0px 3px 20px rgba(0,0,0,0.5);">
+                        <div class="inner" style="font-family: 'Montserrat', sans-serif;">
+                            <h3 style="color: #fff;">{{$vendor_count}}</h3>
+                            <p style="color: #fff;">Sellers</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fas fa-store" style="color: #fff;"></i>
+                        </div>
+                        <a href="#" class="small-box-footer" style="color: #fff;">More info <i
+                                class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
 
                 <!-- for Blogs-->
                 <div class="col-lg-3 col-6">
                     <div class="small-box"
-                         style="background: linear-gradient(to bottom right, #984bb7, #483318); box-shadow: 0px 3px 20px rgba(138,0,0,0.5);">
+                         style="background: linear-gradient(to bottom right, #984bb7, #8c5f27); box-shadow: 0px 3px 20px rgba(138,0,0,0.5);">
                         <div class="inner" style="font-family: 'Montserrat', sans-serif;">
                             <h3 style="color: #fff;">{{$blog_count}}</h3>
                             <p style="color: #fff;">Blogs</p>
@@ -44,9 +86,9 @@
                 <!-- for Orders-->
                 <div class="col-lg-3 col-6">
                     <div class="small-box"
-                         style="background: linear-gradient(to bottom right, #4b6cb7, #25003d); box-shadow: 0px 3px 20px rgba(122,0,255,0.5);">
+                         style="background: linear-gradient(to bottom right, #6986cb, rgba(222,220,0,0.94)); box-shadow: 0px 3px 20px rgba(122,0,255,0.5);">
                         <div class="inner" style="font-family: 'Montserrat', sans-serif;">
-                            <h3 style="color: #fff;">{{$blog_count}}</h3>
+                            <h3 style="color: #fff;">{{$order_count}}</h3>
                             <p style="color: #fff;">Orders</p>
                         </div>
                         <div class="icon">
@@ -58,61 +100,16 @@
                 </div>
 
 
-                <!-- For users -->
-                <div class="col-lg-3 col-6">
-                    <div class="small-box"
-                         style="background: linear-gradient(to bottom right, #9affd5, #fad0c4); box-shadow: 0px 3px 20px rgba(0,0,0,0.5);">
-                        <div class="inner" style="font-family: 'Montserrat', sans-serif;">
-                            <h3 style="color: #fff;">{{$blog_count}}</h3>
-                            <p style="color: #fff;">Users</p>
-                        </div>
-                        <div class="icon">
-                            <i class="fas fa-users" style="color: #fff;"></i>
-                        </div>
-                        <a href="#" class="small-box-footer" style="color: #fff;">More info <i
-                                class="fas fa-arrow-circle-right"></i></a>
-                    </div>
-                </div>
 
 
-                <!-- For vendors -->
-                <div class="col-lg-3 col-6">
-                    <div class="small-box"
-                         style="background: linear-gradient(to bottom right, #6c757d, #212529); box-shadow: 0px 3px 20px rgba(0,0,0,0.5);">
-                        <div class="inner" style="font-family: 'Montserrat', sans-serif;">
-                            <h3 style="color: #fff;">{{$blog_count}}</h3>
-                            <p style="color: #fff;">Vendors</p>
-                        </div>
-                        <div class="icon">
-                            <i class="fas fa-store" style="color: #fff;"></i>
-                        </div>
-                        <a href="#" class="small-box-footer" style="color: #fff;">More info <i
-                                class="fas fa-arrow-circle-right"></i></a>
-                    </div>
-                </div>
 
-                <!-- for Admins -->
-                <div class="col-lg-3 col-6">
-                    <div class="small-box"
-                         style="background: linear-gradient(to bottom right, #4b6cb7, #182848); box-shadow: 0px 3px 20px rgba(0,0,0,0.5);">
-                        <div class="inner" style="font-family: 'Montserrat', sans-serif;">
-                            <h3 style="color: #fff;">{{$blog_count}}</h3>
-                            <p style="color: #fff;">Admins</p>
-                        </div>
-                        <div class="icon">
-                            <i class="fas fa-user-tie" style="color: #fff;"></i>
-                        </div>
-                        <a href="#" class="small-box-footer" style="color: #fff;">More info <i
-                                class="fas fa-arrow-circle-right"></i></a>
-                    </div>
-                </div>
 
                 <!-- for Brands-->
                 <div class="col-lg-3 col-6">
                     <div class="small-box"
-                         style="background: linear-gradient(to bottom right, #4b6cb7, #483e18); box-shadow: 0px 3px 20px rgba(0,0,0,0.5);">
+                         style="background: linear-gradient(to bottom right, #488d02, #00437c); box-shadow: 0px 3px 20px rgba(0,0,0,0.5);">
                         <div class="inner" style="font-family: 'Montserrat', sans-serif;">
-                            <h3 style="color: #fff;">{{$blog_count}}</h3>
+                            <h3 style="color: #fff;">{{$brand_count}}</h3>
                             <p style="color: #fff;">Brands</p>
                         </div>
                         <div class="icon">
@@ -126,9 +123,9 @@
                 <!-- for Products-->
                 <div class="col-lg-3 col-6">
                     <div class="small-box"
-                         style="background: linear-gradient(to bottom right, #4b6cb7, #184842); box-shadow: 0px 3px 20px rgba(0,0,0,0.5);">
+                         style="background: linear-gradient(to bottom right, #5d89ec, #187e6e); box-shadow: 0px 3px 20px rgba(0,0,0,0.5);">
                         <div class="inner" style="font-family: 'Montserrat', sans-serif;">
-                            <h3 style="color: #fff;">{{$blog_count}}</h3>
+                            <h3 style="color: #fff;">{{$product_count}}</h3>
                             <p style="color: #fff;">Products</p>
                         </div>
                         <div class="icon">

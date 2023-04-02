@@ -7506,7 +7506,7 @@ var Buttons = /*#__PURE__*/function () {
         var styleInfo = _this2.context.invoke('editor.currentStyle');
 
         if (_this2.options.addDefaultFonts) {
-          // Add 'default' webfonts into the fontnames array if not exist
+          // Add 'default' fonts into the fontnames array if not exist
           external_jQuery_default().each(styleInfo['font-family'].split(','), function (idx, fontname) {
             fontname = fontname.trim().replace(/['"]+/g, '');
 
