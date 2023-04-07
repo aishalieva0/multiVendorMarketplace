@@ -24,8 +24,8 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="status">Description</label>
-                            <input type="text" name="status" class="form-control" placeholder="Enter status" id="title">
+                            <label for="description">Description</label>
+                            <input type="text" name="description" class="form-control" placeholder="Enter description" id="description">
                         </div>
 
 
@@ -71,7 +71,7 @@
 
                         <div class="form-group" hidden>
                             <label for="vendor_id">Vendor</label>
-                            <input type="text" name="vendor_id" class="form-control" placeholder="Enter vendor" id="vendor_id">
+                            <input type="text" name="vendor_id" value="{{ 1 }}" class="form-control" placeholder="Enter vendor" id="vendor_id">
                         </div>
 
                         <div class="form-group">

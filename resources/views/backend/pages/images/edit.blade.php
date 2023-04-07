@@ -17,9 +17,9 @@
                         <div class="card-body">
 
                             <div class="form-group">
-                                <label for="path">Path</label>
-                                <input type="text" name="path" value="{{$images->path}}" class="form-control"
-                                       placeholder="Enter path">
+                                <label for="image">Image</label>
+                                <img src="{{asset('image_images/'. $images->image) ?? ''}}" width="50" height="50">
+                                <input type="file" name="image" class="form-control">
                             </div>
 
                             <div class="form-group">

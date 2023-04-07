@@ -65,3 +65,6 @@ Auth::routes();
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home'); //user logged
 //Route::get('/vendor', [VendorController::class, 'index'])->name('vendor'); //vender logged
+
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

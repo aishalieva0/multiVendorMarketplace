@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ImagesRequest;
 use App\Models\Image;
 
 class ImagesController extends Controller
@@ -37,7 +38,15 @@ class ImagesController extends Controller
      */
     public function store(ImagesRequest $request)
     {
-        Image::create($request->validated());
+        $validated = $request->validated();
+
+        if ($request->hasFile('image')) {
+            $name = 'image' . time() . '.' . $request->file('image')->extension();
+            $request->file('image')->move(public_path() . '/image_images/', $name);
+            $validated = array_merge($request->validated(), ['image' => $name]);
+        }
+
+         Image::create($validated);
 
         return redirect()->route('images.index')->with('success', 'Created');
     }
@@ -76,7 +85,17 @@ class ImagesController extends Controller
      */
     public function update(ImagesRequest $request, $id)
     {
-        Image::find($id)->update($request->validated());
+        $images = Image::find($id);
+
+        $validated =  $request->validated();
+
+        if ($request->hasFile('image')) {
+            $name = 'image' . time() . '.' . $request->file('image')->extension();
+            $request->file('image')->move(public_path() . '/image_images/', $name);
+            $validated = array_merge($request->validated(), ['image' => $name]);
+        }
+
+        $images->update($validated);
 
         return redirect()->route('images.index')->with('message', 'Register Success');
     }

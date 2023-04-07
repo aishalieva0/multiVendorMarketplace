@@ -41,3 +41,5 @@ class CreateVendorsTable extends Migration
         Schema::dropIfExists('vendors');
     }
 }
+
+

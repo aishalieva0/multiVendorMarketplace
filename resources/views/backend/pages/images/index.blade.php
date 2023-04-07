@@ -32,15 +32,14 @@
                             <table class="table table-hover text-nowrap">
                                 <thead>
                                 <tr>
-                                    <th>Path</th>
+                                    <th>Image</th>
                                     <th>Main</th>
-                                    <th>Actions</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($images as $image)
                                 <tr>
-                                    <td>{{$image->path}}</td>
+                                    <td><img src="{{asset('image_images/'. $image->image) ?? ''}}" width="50" height="50"></td>
                                     <td>{{$image->main}}</td>
 
                                     <td style="display:flex;column-gap:5px;">

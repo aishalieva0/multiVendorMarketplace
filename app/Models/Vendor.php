@@ -15,6 +15,7 @@ class Vendor extends Authenticatable
      * @var array
      */
     protected $fillable = [
+
         'name', 'surname', 'email', 'password', 'shop_name', 'phone', 'address', 'city', 'role_id'
     ];
 
@@ -47,5 +48,10 @@ class Vendor extends Authenticatable
     {
 
         return $this->roles->map->permissions->flatten()->unique();
+    }
+
+    public function products(){
+
+        return $this->hasMany(Product::class,'id');
     }
 }

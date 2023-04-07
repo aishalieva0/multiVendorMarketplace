@@ -14,15 +14,14 @@
                     <div class="card-body">
 
                         <div class="form-group">
-                            <label for="path">Path</label>
-                            <input type="text" name="path" class="form-control" placeholder="Enter path">
+                            <label for="image">Image</label>
+                            <input type="file" name="image" class="form-control" >
                         </div>
 
                         <div class="form-group">
                             <label for="main">Main</label>
                             <input type="text" name="main" class="form-control" placeholder="Enter main">
                         </div>
-
 
                     </div>
 

@@ -34,4 +34,8 @@ class Product extends Model
     public function brands(){
         return $this->belongsTo(Brand::class);
     }
+    public function vendors(){
+
+        return $this->belongsTo(Vendor::class,'vendor_id');
+    }
 }

@@ -14,7 +14,7 @@ return [
     */
 
     'defaults' => [
-        'guard' => ['user', 'vendor'], // set the default guards to 'user' and 'vendor'
+        'guard' => 'user', // set the default guards to 'user' and 'vendor'
         'passwords' => 'users', // set the default password provider to 'users'
     ],
 
