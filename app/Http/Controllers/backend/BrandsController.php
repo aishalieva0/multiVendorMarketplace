@@ -38,7 +38,15 @@ class BrandsController extends Controller
      */
     public function store(BrandsRequest $request)
     {
-        Brand::create($request->validated());
+        $validated = $request->validated();
+        
+        if ($request->hasFile('logo')) {
+            $name = 'logo' . time() . '.' . $request->file('logo')->extension();
+            $request->file('logo')->move(public_path() . '/brand_logo/', $name);
+            $validated = array_merge($request->validated(), ['logo' => $name]);
+        }
+
+         Brand::create($validated);
 
         return redirect()->route('brands.index')->with('success', 'Created');
     }
@@ -76,7 +84,17 @@ class BrandsController extends Controller
      */
     public function update(BrandsRequest $request, $id)
     {
-        Brand::find($id)->update($request->validated());
+        $brands = Brand::find($id);
+
+        $validated =  $request->validated();
+
+        if ($request->hasFile('logo')) {
+            $name = 'logo' . time() . '.' . $request->file('logo')->extension();
+            $request->file('logo')->move(public_path() . '/brand_logo/', $name);
+            $validated = array_merge($request->validated(), ['logo' => $name]);
+        }
+
+        $brands->update($validated);
 
         return redirect()->route('brands.index')->with('message', 'Register Success');
     }

@@ -20,7 +20,7 @@
 
                         <div class="form-group">
                             <label for="logo">Logo</label>
-                            <input type="text" name="logo" class="form-control" placeholder="Enter logo">
+                            <input type="file" name="logo" class="form-control" placeholder="Enter logo">
                         </div>
 
                         <div class="form-group">

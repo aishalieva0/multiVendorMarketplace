@@ -16,8 +16,8 @@
                     <div class="single-product-area">
                         <div class="product_image">
                             <!-- Product Image -->
-                            <img class="normal_img" src="{{ asset($product->image) }}"  alt="">
-                            <img class="hover_img" src="{{ asset($product->image) }}"  alt="">
+                            <img class="normal_img" src="{{asset('products_images/'. $product->image) ?? ''}}"  alt="">
+                            <img class="hover_img" src="{{asset('products_images/'. $product->image) ?? ''}}" alt="">
                             <!-- Product Badge -->
                             <div class="product_badge">
                                 <span>New</span>
@@ -43,8 +43,7 @@
 
                             <!-- Quick View -->
                             <div class="product_quick_view">
-                                <a href="#" data-toggle="modal" data-target="#quickview"><i
-                                            class="icofont-eye-alt"></i> Quick View</a>
+                                <a href="#" data-toggle="modal" data-target="#quickview{{ $product->id }}"><i class="icofont-eye-alt"></i> Quick View</a>
                             </div>
 
                             <p class="brand_name">{{ $product->title }}</p>

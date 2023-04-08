@@ -1,6 +1,6 @@
+                            @foreach ( $quick_view as $quick)
 <!-- Quick View Modal Area -->
-<div class="modal fade" id="quickview" tabindex="-1" role="dialog" aria-labelledby="quickview" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+<div class="modal fade" id="quickview{{ $quick->id }}" tabindex="-1" role="dialog" aria-labelledby="quickview{{ $quick->id }}" aria-hidden="true">    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content">
             <button type="button" class="close btn" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
@@ -11,8 +11,8 @@
                         <div class="row">
                             <div class="col-12 col-lg-5">
                                 <div class="quickview_pro_img">
-                                    <img class="first_img" src="{{ asset('assets/frontend/img/product-img/new-1-back.png') }}" alt="">
-                                    <img class="hover_img" src="{{ asset('assets/frontend/img/product-img/new-1.png') }}" alt="">
+                                    <img class="first_img" src="{{asset('products_images/'. $quick->image) ?? ''}}" alt="">
+                                    <img class="hover_img" src="{{asset('products_images/'. $quick->image) ?? ''}}" alt="">
                                     <!-- Product Badge -->
                                     <div class="product_badge">
                                         <span class="badge-new">New</span>
@@ -21,7 +21,7 @@
                             </div>
                             <div class="col-12 col-lg-7">
                                 <div class="quickview_pro_des">
-                                    <h4 class="title">Boutique Silk Dress</h4>
+                                    <h4 class="title">{{ $quick->title }}</h4>
                                     <div class="top_seller_product_rating mb-15">
                                         <i class="fa fa-star" aria-hidden="true"></i>
                                         <i class="fa fa-star" aria-hidden="true"></i>
@@ -72,4 +72,6 @@
         </div>
     </div>
 </div>
+@endforeach
+
 <!-- Quick View Modal Area -->

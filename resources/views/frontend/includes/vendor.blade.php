@@ -82,7 +82,7 @@
                                                     <!-- Quick View -->
                                                     <div class="ts_product_quick_view">
                                                         <a href="#" data-toggle="modal"
-                                                            data-target="#quickview"><i class="icofont-eye-alt"></i></a>
+                                                            data-target="#quickview{{ $sale->id }}"><i class="icofont-eye-alt"></i></a>
                                                     </div>
                                                 </div>
                                             </div>

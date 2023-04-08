@@ -4,6 +4,7 @@ namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Banner;
+use App\Models\Brand;
 use App\Models\Image;
 use App\Models\Product;
 use App\Models\Slider;
@@ -18,8 +19,13 @@ class HomeController extends Controller
         $vendors = Vendor::withCount('products')->limit(6)->get();
         $sales = Product::where('status', '1')->limit(6)->get();
         $products = Product::where('status', '1')->get();
+        $brands = Brand::where('status', '1')->limit(6)->get();
+        $quick_view = Product::where('status', '1')->get();
 
         return view('frontend.sections.index', compact(
-            'sliders', 'banners', 'vendors', 'sales', 'products'));
+            'sliders', 'banners', 'vendors', 'sales', 'products', 'brands', 'quick_view'));
     }
+
+
+
 }

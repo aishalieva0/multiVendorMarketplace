@@ -24,8 +24,8 @@
 
                             <div class="form-group">
                                 <label for="logo">Logo</label>
-                                <input type="text" name="logo" value="{{$brands->logo}}" class="form-control"
-                                       placeholder="Enter logo">
+                                <img src="{{asset('brand_logo/'. $brands->logo) ?? ''}}" width="50" height="50">
+                                <input type="file" name="logo" class="form-control">
                             </div>
 
                             <div class="form-group">

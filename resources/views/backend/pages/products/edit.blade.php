@@ -76,6 +76,8 @@
                                        placeholder="Enter sale price" id="sale_price">
                             </div>
 
+                            <input type="number" value="1" hidden name="vendor_id">
+
                             <div class="form-group">
                                 <label for="stock_count">Stock</label>
                                 <input type="number" name="stock_count" value="{{$product->stock_count}}"
