@@ -22,8 +22,12 @@ use App\Http\Controllers\frontend\CartController;
 use App\Http\Controllers\frontend\ContactController;
 use App\Http\Controllers\frontend\HomeController;
 use App\Http\Controllers\frontend\ShopController;
+use App\Http\Controllers\vendor\VendorController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+
+
+
 
 
 //back
@@ -67,3 +71,6 @@ Auth::routes();
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home'); //user logged
 //Route::get('/vendor', [VendorController::class, 'index'])->name('vendor'); //vender logged
+
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

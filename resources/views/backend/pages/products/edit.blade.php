@@ -38,8 +38,8 @@
 
                             <div class="form-group">
                                 <label for="image">Image</label>
-                                <img src="{{asset('uploads/products/'. $product->image) ?? ''}}" width="50" height="50">
-                                <input type="file" name="image" class="form-control" id="image">
+                                <img src="{{asset('products_images/'. $product->image) ?? ''}}" width="50" height="50">
+                                <input type="file" name="image" class="form-control">
                             </div>
 
                             <div class="form-group">
@@ -75,6 +75,8 @@
                                        class="form-control"
                                        placeholder="Enter sale price" id="sale_price">
                             </div>
+
+                            <input type="number" value="1" hidden name="vendor_id">
 
                             <div class="form-group">
                                 <label for="stock_count">Stock</label>

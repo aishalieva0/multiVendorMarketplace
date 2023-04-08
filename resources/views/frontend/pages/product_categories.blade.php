@@ -10,6 +10,5 @@
         <?php endforeach; ?>
       </ul>
     </section>
-    
 
 @endsection

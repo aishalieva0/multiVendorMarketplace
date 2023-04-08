@@ -57,7 +57,7 @@
                                     <td>{{$product->title}}</td>
                                     <td>{{$product->overview}}</td>
                                     <td>{{$product->description}}</td>
-                                    <td>{{$product->image}}</td>
+                                    <td><img src="{{asset('products_images/'. $product->image) ?? ''}}" width="50" height="50"></td>
                                     <td>{{$product->badge}}</td>
                                     <td>{{$product->quantity}}</td>
                                     <td>{{$product->price}}</td>

@@ -7,6 +7,7 @@ use App\Http\Requests\ProductsRequest;
 use App\Models\Brand;
 use App\Models\Product;
 use App\Models\ProductCategory;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -42,9 +43,17 @@ class ProductController extends Controller
      */
     public function store(ProductsRequest $request)
     {
-        Product::create($request->validated());
 
-//        dd($request->validated());
+        $validated = $request->validated();
+
+        if ($request->hasFile('image')) {
+            $name = 'image' . time() . '.' . $request->file('image')->extension();
+            $request->file('image')->move(public_path() . '/products_images/', $name);
+            $validated = array_merge($request->validated(), ['image' => $name]);
+        }
+
+         Product::create($validated);
+
         return redirect()->route('products.index')->with('success','Product is added successfully');
     }
 
@@ -84,9 +93,20 @@ class ProductController extends Controller
      */
     public function update(ProductsRequest $request, $id)
     {
-        Product::find($id)->update($request->validated());
+        $products = Product::find($id);
+
+        $validated =  $request->validated();
+
+        if ($request->hasFile('image')) {
+            $name = 'image' . time() . '.' . $request->file('image')->extension();
+            $request->file('image')->move(public_path() . '/products_images/', $name);
+            $validated = array_merge($request->validated(), ['image' => $name]);
+        }
+
+        $products->update($validated);
 
         return redirect()->route('products.index')->with('success','Product is updated successfully');
+
     }
 
     /**

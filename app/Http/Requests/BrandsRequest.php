@@ -25,7 +25,7 @@ class BrandsRequest extends FormRequest
     {
         return [
             'title' => 'required|string',
-            'logo' => 'required|string',
+            'logo' => 'nullable',
             'status' => 'required'
 
         ];

@@ -42,7 +42,7 @@
                                 @foreach($brands as $brand)
                                 <tr>
                                     <td>{{$brand->title}}</td>
-                                    <td>{{$brand->logo}}</td>
+                                    <td><img src="{{asset('brand_logo/'. $brand->logo) ?? ''}}" width="50" height="50"></td>
                                     <td>{{$brand->status}}</td>
 
                                     <td style="display:flex;column-gap:5px;">
