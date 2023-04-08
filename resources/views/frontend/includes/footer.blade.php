@@ -148,7 +148,49 @@
 <script src="{{asset('assets/frontend/js/jquery.nice-select.min.js') }}"></script>
 <script src="{{asset('assets/frontend/js/wow.min.js') }}"></script>
 <script src="{{asset('assets/frontend/js/active.js') }}"></script>
+<script type="text/javascript">
 
+    $(".update-cart").change(function (e) {
+        e.preventDefault();
+
+        var ele = $(this);
+
+        $.ajax({
+            url: '{{ route('update.cart') }}',
+            method: "patch",
+            data: {
+                _token: '{{ csrf_token() }}',
+                id: ele.parents("tr").attr("data-id"),
+                quantity: ele.parents("tr").find(".quantity").val()
+            },
+            success: function (response) {
+                window.location.reload();
+            }
+        });
+    });
+
+    $(".remove-from-cart").click(function (e) {
+        e.preventDefault();
+
+        var ele = $(this);
+
+        if(confirm("Are you sure want to remove?")) {
+            $.ajax({
+                url: '{{ url('remove-from-cart') }}/' + ele.parents("tr").attr("data-id"),
+                method: "DELETE",
+                data: {
+                    _token: '{{ csrf_token() }}',
+                    product_id: ele.parents("tr").find(".product-id").val()
+                },
+                success: function (response) {
+                    window.location.reload();
+                }
+            });
+        }
+    });
+
+
+</script>
 </body>
 
 </html>

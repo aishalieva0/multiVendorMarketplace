@@ -136,7 +136,7 @@
                                     <div class="megamenu">
                                         @php
                                             $categories = $product_categories->chunk(4); // group the categories into rows
-                                        @endphp
+//                                        @endphp
                                         @foreach($categories as $category_row)
                                             <ul class="single-mega cn-col-4">
                                                 @foreach($category_row as $product_cat)
@@ -238,20 +238,40 @@
 
                         <!-- Account -->
                         <!-- when logged in -->
+
+
                         <div class="account-area">
-                            @auth
+                            @if(auth('user')->check())
                                 <div class="user-thumbnail">
                                     <i class="icofont-user-alt-5"></i>
                                 </div>
                                 <ul class="user-meta-dropdown">
                                     <li class="user-title"><span>Hello,</span>
-                                        @if(Auth::user()->role_id == 3)
-                                            {{ Auth::guard('user')->user()->name }}
-                                        @endif
-
-                                        @if(Auth::user()->role_id == 2)
-                                            {{ Auth::guard('vendor')->user()->name}}
-                                        @endif
+{{--                                        @if(Auth::check() && Auth::user()->role_id == 3)--}}
+{{--                                        {{ Auth::guard('user')->user()->name }}--}}
+{{--                                        @endif--}}
+                                    </li>
+                                    <li><a href="{{ asset('myaccount') }}">My Account</a></li>
+                                    <li><a href="#">Orders List</a></li>
+                                    <li><a href="#">Wishlist</a></li>
+                                    <li>
+                                        <form action="{{ route('logout') }}" method="POST">
+                                            @csrf
+                                            <button type="submit" class="btn btn-link"><i class="icofont-logout"></i>
+                                                Logout
+                                            </button>
+                                        </form>
+                                    </li>
+                                </ul>
+                            @elseif(auth('vendor')->check())
+                                <div class="user-thumbnail">
+                                    <i class="icofont-user-alt-5"></i>
+                                </div>
+                                <ul class="user-meta-dropdown">
+                                    <li class="user-title"><span>Hello,</span>
+{{--                                        @if(Auth::check() && Auth::user()->role_id == 2)--}}
+{{--                                        {{ Auth::guard('vendor')->user()->name}}--}}
+{{--                                        @endif--}}
                                     </li>
                                     <li><a href="{{ asset('myaccount') }}">My Account</a></li>
                                     <li><a href="#">Orders List</a></li>
@@ -274,24 +294,48 @@
                                     <a href="{{ route('login') }}" class="mr-2">Login</a>
                                     <a href="{{ route('register') }}">Register</a>
                                 </div>
-
-
-                                {{--                                <ul class="user-meta-dropdown">--}}
-                                {{--                                    <li><a href="{{ route('login') }}" class="mr-2">Login</a></li>--}}
-                                {{--                                    <li><a href="{{ route('register') }}">Register</a></li>--}}
-                                {{--                                </ul>--}}
-
-
-                                {{--                                <div class="classynav">--}}
-                                {{--                                    <ul>--}}
-                                {{--                                        <li><a href="{{route('contact')}}">Log in</a></li>--}}
-
-                                {{--                                        <li><a href="{{route('about')}}">Sign up</a></li>--}}
-                                {{--                                    </ul>--}}
-                                {{--                                </div>--}}
-
-                            @endauth
+                            @endif
                         </div>
+
+
+                        {{--                        <div class="account-area">--}}
+                        {{--                            @auth--}}
+                        {{--                                <div class="user-thumbnail">--}}
+                        {{--                                    <i class="icofont-user-alt-5"></i>--}}
+                        {{--                                </div>--}}
+                        {{--                                <ul class="user-meta-dropdown">--}}
+                        {{--                                    <li class="user-title"><span>Hello,</span>--}}
+                        {{--                                        @if(Auth::check() && Auth::user()->role_id == 3)--}}
+                        {{--                                            {{ Auth::guard('user')->user()->name }}--}}
+                        {{--                                        @elseif(Auth::check() && Auth::user()->role_id == 2)--}}
+                        {{--                                            {{ Auth::guard('vendor')->user()->name}}--}}
+                        {{--                                        @else--}}
+                        {{--                                            Guest--}}
+                        {{--                                        @endif--}}
+                        {{--                                    </li>--}}
+                        {{--                                    <li><a href="{{ asset('myaccount') }}">My Account</a></li>--}}
+                        {{--                                    <li><a href="#">Orders List</a></li>--}}
+                        {{--                                    <li><a href="#">Wishlist</a></li>--}}
+                        {{--                                    <li>--}}
+                        {{--                                        <form action="{{ route('logout') }}" method="POST">--}}
+                        {{--                                            @csrf--}}
+                        {{--                                            <button type="submit" class="btn btn-link"><i class="icofont-logout"></i>--}}
+                        {{--                                                Logout--}}
+                        {{--                                            </button>--}}
+                        {{--                                        </form>--}}
+                        {{--                                    </li>--}}
+                        {{--                                </ul>--}}
+                        {{--                            @else--}}
+                        {{--                                <!-- guest -->--}}
+                        {{--                                <div class="user-thumbnail">--}}
+                        {{--                                    <i class="icofont-user-alt-7"></i>--}}
+                        {{--                                </div>--}}
+                        {{--                                <div class="user-meta-dropdown">--}}
+                        {{--                                    <a href="{{ route('login') }}" class="mr-2">Login</a>--}}
+                        {{--                                    <a href="{{ route('register') }}">Register</a>--}}
+                        {{--                                </div>--}}
+                        {{--                            @endauth--}}
+                        {{--                        </div>--}}
 
 
                     </div>

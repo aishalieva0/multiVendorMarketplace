@@ -54,7 +54,8 @@
                                             <td>{{$blog->title}}</td>
                                             <td>{{$blog->description}}</td>
                                             <td>{{$blog->content}}</td>
-                                            <td>{{$blog->image}}</td>
+                                            <td><img src="{{ asset('storage/' . $blog->image) }}" width="50" height="50"></td>
+
                                             <td>{{$blog->url}}</td>
                                             <td>{{$blog->cat_id }}</td>
                                             <td>{{$blog->status}}</td>
