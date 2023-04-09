@@ -22,7 +22,11 @@ use App\Http\Controllers\frontend\CartController;
 use App\Http\Controllers\frontend\ContactController;
 use App\Http\Controllers\frontend\HomeController;
 use App\Http\Controllers\frontend\ShopController;
+<<<<<<< HEAD
 use App\Http\Controllers\vendor\VendorController;
+=======
+use App\Http\Controllers\frontend\WishlistController;
+>>>>>>> aisha
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -60,11 +64,19 @@ Route::get('myaccount', [AccountController::class, 'index'])->name('account');
 Route::get('cart', [CartController::class, 'index'])->name('cart');
 Route::get('product-category', [ShopController::class, 'categories'])->name('product_cat');
 
+
 Route::get('product', [\App\Http\Controllers\frontend\ProductController::class, 'index'])->name('product');
 Route::get('cart', [\App\Http\Controllers\frontend\ProductController::class, 'cart'])->name('cart');
 Route::get('add-to-cart/{id}', [\App\Http\Controllers\frontend\ProductController::class, 'addToCart'])->name('add.to.cart');
 Route::patch('update-cart', [\App\Http\Controllers\frontend\ProductController::class, 'update'])->name('update.cart');
 Route::DELETE('remove-from-cart/{id}', [\App\Http\Controllers\frontend\ProductController::class, 'remove'])->name('remove.from.cart');
+
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::resource('wishlist', WishlistController::class)->only(['index', 'store', 'destroy']);
+});
+
 
 
 Auth::routes();

@@ -136,7 +136,7 @@
                                     <div class="megamenu">
                                         @php
                                             $categories = $product_categories->chunk(4); // group the categories into rows
-//                                        @endphp
+                                        @endphp
                                         @foreach($categories as $category_row)
                                             <ul class="single-mega cn-col-4">
                                                 @foreach($category_row as $product_cat)
@@ -176,64 +176,68 @@
 
                         <!-- Wishlist -->
                         <div class="wishlist-area">
-                            <a href="wishlist.html" class="wishlist-btn"><i class="icofont-heart"></i></a>
+                            <a href="{{route('wishlist.index')}}" class="wishlist-btn"><i class="icofont-heart"></i></a>
                         </div>
 
                         <!-- Cart -->
                         <div class="cart-area">
-                            <div class="cart--btn"><i class="icofont-cart"></i> <span class="cart_quantity">2</span>
-                            </div>
+                            @if(session('cart'))
+                                @foreach(session('cart') as $id =>$product)
+                                    <div class="cart--btn">
+                                        <i class="icofont-cart"></i>
+                                        <span class="cart_quantity">{{$product['quantity']}}</span>
+                                    </div>
 
-                            <!-- Cart Dropdown Content -->
-                            <div class="cart-dropdown-content">
-                                <ul class="cart-list">
-                                    <li>
-                                        <div class="cart-item-desc">
-                                            <a href="#" class="image">
-                                                <img src="{{asset('assets/frontend/img/product-img/top-1.png') }}"
-                                                     class="cart-thumb" alt="">
-                                            </a>
-                                            <div>
-                                                <a href="#">Kid's Fashion</a>
-                                                <p>1 x - <span class="price">$32.99</span></p>
-                                            </div>
+                                    <!-- Cart Dropdown Content -->
+                                    @php $total_amount = 0; @endphp
+                                    <div class="cart-dropdown-content">
+                                        <ul class="cart-list">
+
+                                            <li>
+                                                <div class="cart-item-desc">
+                                                    <a href="#" class="image">
+                                                        <img
+                                                            src="{{ asset($product['image']) }}"
+                                                            class="cart-thumb" alt="">
+                                                    </a>
+                                                    <div>
+                                                        <a href="#">{{$product['title']}}</a>
+                                                        <p>{{$product['quantity']}}x - <span class="price">{{$product['price']}}₼</span>
+                                                            @php
+                                                                $total_amount += $product['price'] * $product['quantity'] @endphp
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <form action="{{ route('remove.from.cart', $id) }}" method="post">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <input type="hidden" name="product_id" value="{{ $id }}">
+                                                    <th scope="row">
+                                                        <button type="submit" class="dropdown-product-remove"><i
+                                                                class="icofont-bin"></i></button>
+                                                    </th>
+                                                </form>
+                                            </li>
+                                            @endforeach
+
+                                        </ul>
+                                        <div class="cart-pricing my-4">
+                                            <ul>
+                                                <li>
+                                                    <span>Total:</span>
+                                                    <span>{{$total_amount}}</span>
+                                                </li>
+                                            </ul>
                                         </div>
-                                        <span class="dropdown-product-remove"><i class="icofont-bin"></i></span>
-                                    </li>
-                                    <li>
-                                        <div class="cart-item-desc">
-                                            <a href="#" class="image">
-                                                <img src="{{asset('assets/frontend/img/product-img/best-4.png') }}"
-                                                     class="cart-thumb" alt="">
-                                            </a>
-                                            <div>
-                                                <a href="#">Headphone</a>
-                                                <p>2x - <span class="price">$49.99</span></p>
-                                            </div>
+                                        <div class="cart-box">
+                                            <a href="checkout-1.html" class="btn btn-primary d-block">Checkout</a>
                                         </div>
-                                        <span class="dropdown-product-remove"><i class="icofont-bin"></i></span>
-                                    </li>
-                                </ul>
-                                <div class="cart-pricing my-4">
-                                    <ul>
-                                        <li>
-                                            <span>Sub Total:</span>
-                                            <span>$822.96</span>
-                                        </li>
-                                        <li>
-                                            <span>Shipping:</span>
-                                            <span>$30.00</span>
-                                        </li>
-                                        <li>
-                                            <span>Total:</span>
-                                            <span>$856.63</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="cart-box">
-                                    <a href="checkout-1.html" class="btn btn-primary d-block">Checkout</a>
-                                </div>
-                            </div>
+                                    </div>
+                                    @else
+                                        <div class="cart--btn">
+                                            <i class="icofont-cart"></i>
+                                        </div>
+                                    @endif
                         </div>
 
                         <!-- Account -->
@@ -247,13 +251,13 @@
                                 </div>
                                 <ul class="user-meta-dropdown">
                                     <li class="user-title"><span>Hello,</span>
-{{--                                        @if(Auth::check() && Auth::user()->role_id == 3)--}}
-{{--                                        {{ Auth::guard('user')->user()->name }}--}}
-{{--                                        @endif--}}
+                                        {{--                                        @if(Auth::check() && Auth::user()->role_id == 3)--}}
+                                        {{--                                        {{ Auth::guard('user')->user()->name }}--}}
+                                        {{--                                        @endif--}}
                                     </li>
                                     <li><a href="{{ asset('myaccount') }}">My Account</a></li>
                                     <li><a href="#">Orders List</a></li>
-                                    <li><a href="#">Wishlist</a></li>
+                                    <li><a href="{{ route('wishlist.index') }}">Wishlist</a></li>
                                     <li>
                                         <form action="{{ route('logout') }}" method="POST">
                                             @csrf
@@ -269,13 +273,13 @@
                                 </div>
                                 <ul class="user-meta-dropdown">
                                     <li class="user-title"><span>Hello,</span>
-{{--                                        @if(Auth::check() && Auth::user()->role_id == 2)--}}
-{{--                                        {{ Auth::guard('vendor')->user()->name}}--}}
-{{--                                        @endif--}}
+                                        {{--                                        @if(Auth::check() && Auth::user()->role_id == 2)--}}
+                                        {{--                                        {{ Auth::guard('vendor')->user()->name}}--}}
+                                        {{--                                        @endif--}}
                                     </li>
                                     <li><a href="{{ asset('myaccount') }}">My Account</a></li>
                                     <li><a href="#">Orders List</a></li>
-                                    <li><a href="#">Wishlist</a></li>
+                                    <li><a href="{{ route('wishlist') }}">Wishlist</a></li>
                                     <li>
                                         <form action="{{ route('logout') }}" method="POST">
                                             @csrf
