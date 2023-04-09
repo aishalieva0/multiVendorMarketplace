@@ -38,7 +38,7 @@
 
                             <div class="form-group">
                                 <label for="image">Image</label>
-                                <img src="{{asset('uploads/blogs/'. $blog->image) ?? ''}}" width="50" height="50">
+                                <img src="{{asset('blogs_images/'. $blog->image) ?? ''}}" width="50" height="50">
                                 <input type="file" name="image" class="form-control" id="image">
                             </div>
 
@@ -51,10 +51,9 @@
                             <div class="form-group">
                                 <label for="cat_id">Category</label>
                                 <select name="cat_id" id="cat_id" class="form-control">
-                                    @foreach($categories as $category)
-                                        <option
-                                            value="{{$category->id}}" {{($category->id == $blog->cat_id) ? 'selected' : ''}}>{{$category->title}}</option>
-                                    @endforeach
+                                        @foreach ($categories as $category)
+                                            <option value="{{ $category->category->id }}" {{ $category->category->id == $blog->cat_id ? 'selected' : '' }}>{{ $category->category->title }}</option>
+                                        @endforeach
                                 </select>
                             </div>
 

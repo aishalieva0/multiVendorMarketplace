@@ -228,5 +228,6 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
     ],
+        'my_settings' => '',
 
 ];

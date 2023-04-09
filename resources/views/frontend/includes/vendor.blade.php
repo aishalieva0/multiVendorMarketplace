@@ -60,7 +60,7 @@
                                                     class="ts-seller-info mt-3 d-flex align-items-center justify-content-between">
                                                     <!-- Add to cart -->
                                                     <div class="ts_product_add_to_cart">
-                                                        <a href="#" data-toggle="tooltip" data-placement="top"
+                                                        <a href="{{ route('add.to.cart', $sale->id ) }}" data-toggle="tooltip" data-placement="top"
                                                             title="Add To Cart"><i
                                                                 class="icofont-shopping-cart"></i></a>
                                                     </div>
