@@ -1,7 +1,26 @@
 @extends('layouts.frontend.master')
 
 @section('content')
+    <style>
+        .wishlist-button {
+            border: none;
+            background: none;
+            padding: 0;
+        }
 
+        .wishlist-button:focus {
+            outline: none;
+        }
+
+        .wishlist-button .icofont-heart {
+            color: #488d02;
+        }
+
+        .wishlist-button.in-wishlist .icofont-heart {
+            color: #ff0000;
+        }
+
+    </style>
     <!-- Quick View Modal Area -->
     <div class="modal fade" id="quickview" tabindex="-1" role="dialog" aria-labelledby="quickview" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
@@ -139,21 +158,26 @@
                                             </div>
 
                                             <!-- Wishlist -->
-                                            <div class="product_wishlist">
-                                                <a href="#"><i class="icofont-heart"></i></a>
+                                            <div class="product_wishlist wishicon">
+                                                <form action="{{ route('wishlist.store') }}" method="POST">
+                                                    @csrf
+                                                    <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                                    <button type="submit" class="wishlist-button {{ auth()->guard('user')->user()->wishlist->contains('product_id',$product->id) ? 'in-wishlist' : '' }}">
+                                                        <span><i class="icofont-heart"></i></span>
+                                                    </button>
+                                                </form>
                                             </div>
 
-{{--                                            <!-- Compare -->--}}
-{{--                                            <div class="product_compare">--}}
-{{--                                                <a href="compare.html"><i class="icofont-exchange"></i></a>--}}
-{{--                                            </div>--}}
+
+
                                         </div>
 
                                         <!-- Product Description -->
                                         <div class="product_description">
                                             <!-- Add to cart -->
                                             <div class="product_add_to_cart">
-                                                <a href="{{ route('add.to.cart', $product->id) }}"><i class="icofont-shopping-cart"></i> Add to Cart</a>
+                                                <a href="{{ route('add.to.cart', $product->id) }}"><i
+                                                        class="icofont-shopping-cart"></i> Add to Cart</a>
                                             </div>
 
                                             <!-- Quick View -->
@@ -197,6 +221,43 @@
                     </div>
                 </div>
             </div>
+            <script>
+                const wishlistButton = document.querySelector('.wishlist-button');
+                wishlistButton.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const form = event.target.closest('form');
+                    const product_id = form.querySelector('input[name="product_id"]').value;
+                    const inWishlist = wishlistButton.classList.contains('in-wishlist');
+                    const method = inWishlist ? 'DELETE' : 'POST';
+                    const url = inWishlist ? '{{ route('wishlist.destroy', $product->id) }}' : '{{ route('wishlist.store') }}';
+                    fetch(url, {
+                        method: method,
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                        },
+                        body: JSON.stringify({
+                            product_id: product_id
+                        })
+                    }).then(response => {
+                        wishlistButton.classList.toggle('in-wishlist');
+                        if (response.ok) {
+                            return response.json();
+                        }
+                        throw new Error('Network response was not ok.');
+                    }).then(data => {
+                        console.log(data);
+                    }).catch(error => {
+                        console.error('There was a problem with the fetch operation:', error);
+                    });
+                });
+            </script>
+
+
+
+
+
+
         </div>
     </section>
 

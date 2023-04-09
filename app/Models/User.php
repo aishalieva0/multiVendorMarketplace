@@ -50,5 +50,8 @@ class User extends Authenticatable
         return $this->roles->map->permissions->flatten()->unique();
     }
 
-
+    public function wishlist()
+    {
+        return $this->hasMany(Wishlist::class);
+    }
 }
