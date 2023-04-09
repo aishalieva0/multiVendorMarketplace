@@ -54,12 +54,8 @@
                                             <td>{{$blog->title}}</td>
                                             <td>{{$blog->description}}</td>
                                             <td>{{$blog->content}}</td>
-<<<<<<< .merge_file_si8Hpp
                                             <td><img src="{{ asset(  "$blog->image") }}" width="50" height="50"></td>
-=======
                                             <td><img src="{{ asset('blogs_images/' . $blog->image) }}" width="50" height="50"></td>
->>>>>>> .merge_file_c1zXdq
-
                                             <td>{{$blog->url}}</td>
                                             <td>{{$blog->cat_id }}</td>
                                             <td>{{$blog->status}}</td>
