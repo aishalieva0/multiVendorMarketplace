@@ -20,12 +20,14 @@
 
     <!-- Cart Area -->
     @if(session('cart'))
+        @php $total_amount = 0; @endphp
         <div class="cart_area section_padding_100_70 clearfix">
             <div class="container">
                 <div class="row justify-content-between">
                     <div class="col-12">
                         <div class="cart-table">
                             <div class="table-responsive">
+
                                 <table class="table table-bordered mb-30">
                                     <thead>
                                     <tr>
@@ -38,7 +40,7 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @php $total_amount = 0; @endphp
+
                                     @foreach(session('cart') as $id =>$product)
                                         <tr>
                                             <form action="{{ route('remove.from.cart', $id) }}" method="post">

@@ -14,10 +14,7 @@ class ProductController extends Controller
         return view('frontend.pages.product_list', compact('products'));
     }
 
-    public function wishlist()
-    {
 
-    }
 
     public function cart()
     {
