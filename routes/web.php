@@ -22,11 +22,8 @@ use App\Http\Controllers\frontend\CartController;
 use App\Http\Controllers\frontend\ContactController;
 use App\Http\Controllers\frontend\HomeController;
 use App\Http\Controllers\frontend\ShopController;
-<<<<<<< HEAD
 use App\Http\Controllers\vendor\VendorController;
-=======
 use App\Http\Controllers\frontend\WishlistController;
->>>>>>> aisha
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -77,6 +74,9 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('wishlist', WishlistController::class)->only(['index', 'store', 'destroy']);
 });
 
+Route::get('checkout/shipping', [\App\Http\Controllers\frontend\CheckoutController::class, 'shipping'])->name('checkout.shipping');
+Route::get('checkout/payment', [\App\Http\Controllers\frontend\CheckoutController::class, 'payment'])->name('checkout.payment');
+Route::get('checkout/review', [\App\Http\Controllers\frontend\CheckoutController::class, 'review'])->name('checkout.review');
 
 
 Auth::routes();

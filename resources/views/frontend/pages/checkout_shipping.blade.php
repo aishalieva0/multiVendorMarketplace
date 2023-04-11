@@ -9,7 +9,7 @@
                 <div class="col-12">
                     <h5>Checkout</h5>
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
                         <li class="breadcrumb-item active">Checkout</li>
                     </ol>
                 </div>
@@ -20,11 +20,9 @@
 
     <!-- Checkout Steps Area -->
     <div class="checkout_steps_area">
-        <a class="complated" href="checkout-1.html"><i class="icofont-check-circled"></i> Login</a>
-        <a class="complated" href="checkout-2.html"><i class="icofont-check-circled"></i> Billing</a>
-        <a class="active" href="checkout-3.html"><i class="icofont-check-circled"></i> Shipping</a>
-        <a href="checkout-4.html"><i class="icofont-check-circled"></i> Payment</a>
-        <a href="checkout-5.html"><i class="icofont-check-circled"></i> Review</a>
+        <a class="active" href="{{route('checkout.shipping')}}"><i class="icofont-check-circled"></i> Shipping</a>
+        <a href="{{route('checkout.payment')}}"><i class="icofont-check-circled"></i> Payment</a>
+        <a href="{{route('checkout.review')}}"><i class="icofont-check-circled"></i> Review</a>
     </div>
     <!-- Checkout Steps Area -->
 
@@ -48,39 +46,20 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <th scope="row">Courier</th>
-                                        <td>1-2 Business Day</td>
-                                        <td>$9.99</td>
-                                        <td>
-                                            <div class="custom-control custom-radio">
-                                                <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                                                <label class="custom-control-label" for="customRadio1"></label>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Flat Rate</th>
-                                        <td>3-4 Day</td>
-                                        <td>$3.00</td>
-                                        <td>
-                                            <div class="custom-control custom-radio">
-                                                <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                                <label class="custom-control-label" for="customRadio2"></label>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Free Shipping</th>
-                                        <td>1 Week</td>
-                                        <td>Free</td>
-                                        <td>
-                                            <div class="custom-control custom-radio">
-                                                <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input">
-                                                <label class="custom-control-label" for="customRadio3"></label>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                    @foreach($delivery_methods as $delivery_method)
+                                        <tr>
+                                            <th scope="row">{{$delivery_method->title}}</th>
+                                            <td>{{$delivery_method->description}}</td>
+                                            <td>{{ ($delivery_method->price != 0) ? $delivery_method->price : "Free" }}</td>
+                                            <td>
+                                                <div class="custom-control custom-radio">
+                                                    <input type="radio" id="{{$delivery_method->id}}" name="customRadio"
+                                                           class="custom-control-input">
+                                                    <label class="custom-control-label" for="customRadio3"></label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                     </tbody>
                                 </table>
                             </div>

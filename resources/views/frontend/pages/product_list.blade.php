@@ -13,7 +13,7 @@
         }
 
         .wishlist-button .icofont-heart {
-            color: #488d02;
+            color: rgba(45, 45, 45, 0.11);
         }
 
         .wishlist-button.in-wishlist .icofont-heart {

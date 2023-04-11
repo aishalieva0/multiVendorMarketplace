@@ -27,7 +27,7 @@ class ProductFactory extends Factory
             'offer' => $this->faker->randomElement([0, 1]),
             'sale_price' => $this->faker->randomFloat(2, 10, 500),
             'stock_count' => $this->faker->numberBetween(0, 100),
-            'vendor_id' => $this->faker->randomElement([1, 2, 3]),
+            'vendor_id' => $this->faker->randomElement([10,11,12]),
             'cat_id' => $this->faker->randomElement([1, 2, 3]),
             'brand_id' => $this->faker->randomElement([1, 2, 3]),
             'url' => $this->faker->url,
