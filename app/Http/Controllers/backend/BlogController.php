@@ -42,8 +42,7 @@ class BlogController extends Controller
     public function edit($id)
     {
         $blog = Blog::find($id);
-        $categories = Blog::with('categories')->get();
-
+        $categories = Blog::with('category')->get();
         return view('backend.pages.blogs.edit', compact('blog', 'categories'));
     }
 
@@ -56,19 +55,17 @@ class BlogController extends Controller
      */
     public function update(BlogRequest $request, $id)
     {
-        $validated = $request->validated();
+        $blogs = Blog::find($id);
 
-        $blog = Blog::find($id);
+        $validated =  $request->validated();
 
         if ($request->hasFile('image')) {
-            $validated['image'] = $request->file('image')->store('uploads/blogs');
-
-            if ($blog->image && Storage::exists($blog->image)) {
-                Storage::delete($blog->image);
-            }
+            $name = 'image' . time() . '.' . $request->file('image')->extension();
+            $request->file('image')->move(public_path() . '/blogs_images/', $name);
+            $validated = array_merge($request->validated(), ['image' => $name]);
         }
 
-        $blog->update($validated);
+        $blogs->update($validated);
 
         return redirect()->route('blogs.index')->with(['success' => 'Blog is updated', 'timer' => 3000]);
 
@@ -85,9 +82,12 @@ class BlogController extends Controller
         $validated = $request->validated();
 
         if ($request->hasFile('image')) {
-            $validated['image'] = $request->file('image')->store('uploads/blogs');
+            $name = 'image' . time() . '.' . $request->file('image')->extension();
+            $request->file('image')->move(public_path() . '/blogs_images/', $name);
+            $validated = array_merge($request->validated(), ['image' => $name]);
         }
-        Blog::create($validated);
+
+         Blog::create($validated);
 
         return redirect()->route('blogs.index')->with(['success' => 'Blog is created', 'timer' => 3000]);
     }
@@ -112,17 +112,7 @@ class BlogController extends Controller
      */
     public function destroy($id)
     {
-        $blog = Blog::find($id);
-        if ($blog) {
-
-            // delete image file if it exists
-            if ($blog->image && Storage::exists($blog->image)) {
-                Storage::delete($blog->image);
-            }
-
-            // delete the blog post from the database
-            $blog->delete();
-        }
+        Blog::find($id)->delete();
 
         return redirect()->route('blogs.index')->with('success', 'Blog is deleted')->with('timer', 3000);
     }

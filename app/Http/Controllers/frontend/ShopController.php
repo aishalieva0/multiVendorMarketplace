@@ -9,7 +9,12 @@ class ShopController extends Controller
 {
     public function index()
     {
-        return view('frontend.pages.shop_list');
+        return view('frontend.pages.vendor_list');
+    }
+
+    public function show()
+    {
+        return view('frontend.pages.vendor_detail');
     }
 
     public function categories()

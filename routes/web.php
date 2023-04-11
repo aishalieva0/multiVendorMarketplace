@@ -54,7 +54,9 @@ Route::resource('blogs', \App\Http\Controllers\backend\BlogController::class);
 //front
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('shop', [ShopController::class, 'index'])->name('shop');
+Route::get('shop_detail', [ShopController::class, 'show'])->name('shopdetail');
 Route::get('blog', [BlogController::class, 'index'])->name('blog');
+Route::get('blog_detail/{id}', [BlogController::class, 'show'])->name('blogdetail');
 Route::get('contact', [ContactController::class, 'index'])->name('contact');
 Route::get('about', [AboutController::class, 'index'])->name('about');
 Route::get('myaccount', [AccountController::class, 'index'])->name('account');
