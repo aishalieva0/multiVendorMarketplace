@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Banner;
 use App\Models\Slider;
 use App\Models\Brand;
+use App\Models\Image;
 use App\Models\Product;
 use App\Models\Vendor;
 
@@ -20,9 +21,10 @@ class HomeController extends Controller
         $products = Product::where('status', '1')->get();
         $brands = Brand::where('status', '1')->limit(6)->get();
         $quick_view = Product::where('status', '1')->get();
+        $images = Image::limit(6)->get();
 
         return view('frontend.sections.index', compact(
-            'sliders', 'banners', 'vendors', 'sales', 'products', 'brands', 'quick_view'));
+            'sliders', 'banners', 'vendors', 'sales', 'products', 'brands', 'quick_view', 'images'));
     }
 
 
