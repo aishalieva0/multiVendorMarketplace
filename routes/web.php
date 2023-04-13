@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\backend\AboutUsController;
+
 use App\Http\Controllers\backend\BannerController;
 use App\Http\Controllers\backend\BlogCategoriesController;
 use App\Http\Controllers\backend\BrandsController;
@@ -49,6 +51,7 @@ Route::resource('delivery_methods', DeliveryMethodController::class);
 Route::resource('permissions', PermissonController::class);
 Route::resource('roles', RoleController::class);
 Route::resource('blogs', \App\Http\Controllers\backend\BlogController::class);
+Route::resource('about_us', AboutUsController::class);
 
 
 //front
@@ -58,7 +61,7 @@ Route::get('shop_detail', [ShopController::class, 'show'])->name('shopdetail');
 Route::get('blog', [BlogController::class, 'index'])->name('blog');
 Route::get('blog_detail/{id}', [BlogController::class, 'show'])->name('blogdetail');
 Route::get('contact', [ContactController::class, 'index'])->name('contact');
-Route::get('about', [AboutController::class, 'index'])->name('about');
+Route::get('about', [\App\Http\Controllers\Frontend\AboutController::class, 'index'])->name('about');
 Route::get('myaccount', [AccountController::class, 'index'])->name('account');
 Route::get('cart', [CartController::class, 'index'])->name('cart');
 Route::get('product-category', [ShopController::class, 'categories'])->name('product_cat');

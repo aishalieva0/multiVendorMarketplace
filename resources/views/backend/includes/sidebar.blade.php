@@ -85,7 +85,14 @@
                                     <p>Setting</p>
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a href="{{ asset('about_us') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>About Us</p>
+                                </a>
+                            </li>
                         </ul>
+
                     </li>
 
 
