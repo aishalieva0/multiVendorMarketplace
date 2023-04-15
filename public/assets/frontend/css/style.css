@@ -2632,7 +2632,7 @@ button.mfp-arrow {
     line-height: 70px;
     -webkit-box-flex: 0;
     -ms-flex: 0 0 20%;
-    flex: 0 0 20%;
+    flex: 0 0 33.33%;
     width: 20%;
     height: 70px;
     color: #ffffff; }

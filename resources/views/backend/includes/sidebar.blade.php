@@ -7,6 +7,7 @@
         margin-left: 5px;
     }
 
+
 </style>
 
 <div class="wrapper">
@@ -23,8 +24,22 @@
             </li>
         </ul>
 
-
+        <!-- Right navbar links -->
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <form method="POST" action="{{ route('admin.logout') }}">
+                    @csrf
+                    <button type="submit" class="btn btn-danger">Logout</button>
+                </form>
+            </li>
+        </ul>
     </nav>
+
+
+
+
+
+
     <!-- /.navbar -->
 
     <!-- Main Sidebar Container -->
@@ -41,11 +56,11 @@
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="image">
-                    <img src="{{asset('assets/backend/img/user2-160x160.jpg') }}" class="img-circle elevation-2"
+                    <img src="{{asset('assets/backend/img/user2-160x160.png') }}" class="img-circle elevation-2"
                          alt="User Image">
                 </div>
                 <div class="info">
-                    <a href="#" class="d-block">Admin</a>
+                    <a  class="d-block">{{ Auth::guard('admin')->user()->name }}</a>
                 </div>
             </div>
 
@@ -283,7 +298,6 @@
 
                         </ul>
                     </li>
-
 
 
                 </ul>

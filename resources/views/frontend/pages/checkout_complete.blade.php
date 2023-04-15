@@ -9,7 +9,7 @@
                 <div class="col-12">
                     <h5>Checkout</h5>
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
                         <li class="breadcrumb-item active">Checkout</li>
                     </ol>
                 </div>
@@ -33,5 +33,4 @@
         </div>
     </div>
     <!-- Checkout Area End -->
-
 @endsection

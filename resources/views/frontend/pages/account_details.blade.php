@@ -41,14 +41,16 @@
                                 <div class="col-12 col-lg-6">
                                     <div class="form-group">
                                         <label for="name">First Name *</label>
-                                        <input type="text" class="form-control" id="name" name="name" value="{{Auth::guard('user')->user()->name}}"
+                                        <input type="text" class="form-control" id="name" name="name"
+                                               value="{{Auth::guard('user')->user()->name}}"
                                                placeholder="First Name">
                                     </div>
                                 </div>
                                 <div class="col-12 col-lg-6">
                                     <div class="form-group">
                                         <label for="surname">Last Name *</label>
-                                        <input type="text" class="form-control" id="surname" name="surname" value="{{Auth::guard('user')->user()->surname}}"
+                                        <input type="text" class="form-control" id="surname" name="surname"
+                                               value="{{Auth::guard('user')->user()->surname}}"
                                                placeholder="Last Name">
                                     </div>
                                 </div>
@@ -56,7 +58,8 @@
                                 <div class="col-12">
                                     <div class="form-group">
                                         <label for="email">Email Address *</label>
-                                        <input type="email" class="form-control" id="email" name="email" value="{{Auth::guard('user')->user()->email}}"
+                                        <input type="email" class="form-control" id="email" name="email"
+                                               value="{{Auth::guard('user')->user()->email}}"
                                                placeholder="Email Address">
                                     </div>
                                 </div>
@@ -96,26 +99,19 @@
                                                    placeholder="City">
                                         </div>
                                     </div>
-
                                 @endif
-
-{{--                                <div class="col-12">--}}
-{{--                                    <div class="form-group">--}}
-{{--                                        <label for="currentPass">Current Password (Leave blank to leave--}}
-{{--                                            unchanged)</label>--}}
-{{--                                        <input type="password" class="form-control" id="currentPass" value="{{Auth::guard('user')->user()->password}}">--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
                                 <div class="col-12">
                                     <div class="form-group">
                                         <label for="password">New Password (Leave blank to leave unchanged)</label>
-                                        <input type="password" class="form-control" id="password" name="password" placeholder="New Password">
+                                        <input type="password" class="form-control" id="password" name="password"
+                                               placeholder="New Password">
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group">
                                         <label for="confirmPass">Confirm New Password</label>
-                                        <input type="password" class="form-control" id="confirmPass"  name="password_confirmation" placeholder="Confirm Password">
+                                        <input type="password" class="form-control" id="confirmPass"
+                                               name="password_confirmation" placeholder="Confirm Password">
                                     </div>
                                 </div>
                                 <div class="col-12">

@@ -34,8 +34,8 @@
                             <div class="row">
                                 <div class="col-12 col-lg-5">
                                     <div class="quickview_pro_img">
-                                        <img class="first_img" src="img/product-img/new-1-back.png" alt="">
-                                        <img class="hover_img" src="img/product-img/new-1.png" alt="">
+                                        {{--                                        <img class="first_img" src="img/product-img/new-1-back.png" alt="">--}}
+                                        {{--                                        <img class="hover_img" src="img/product-img/new-1.png" alt="">--}}
                                         <!-- Product Badge -->
                                         <div class="product_badge">
                                             <span class="badge-new">New</span>
@@ -45,13 +45,7 @@
                                 <div class="col-12 col-lg-7">
                                     <div class="quickview_pro_des">
                                         <h4 class="title">Boutique Silk Dress</h4>
-                                        <div class="top_seller_product_rating mb-15">
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                        </div>
+
                                         <h5 class="price">$120.99 <span>$130</span></h5>
                                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia expedita
                                             quibusdam aspernatur, sapiente consectetur accusantium perspiciatis
@@ -106,7 +100,7 @@
                     <h5>Shop Grid</h5>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="/">Home</a></li>
-                        <li class="breadcrumb-item active">Shop Grid</li>
+                        <li class="breadcrumb-item active">Products</li>
                     </ol>
                 </div>
             </div>
@@ -118,26 +112,6 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <!-- Shop Top Sidebar -->
-                    <div class="shop_top_sidebar_area d-flex flex-wrap align-items-center justify-content-between">
-                        <div class="view_area d-flex">
-                            <div class="grid_view">
-                                <a href="shop-grid-left-sidebar.html" data-toggle="tooltip" data-placement="top"
-                                   title="Grid View"><i class="icofont-layout"></i></a>
-                            </div>
-                            <div class="list_view ml-3">
-                                <a href="shop-list-left-sidebar.html" data-toggle="tooltip" data-placement="top"
-                                   title="List View"><i class="icofont-listine-dots"></i></a>
-                            </div>
-                        </div>
-                        <select class="small right">
-                            <option selected>Short by Popularity</option>
-                            <option value="1">Short by Newest</option>
-                            <option value="2">Short by Sales</option>
-                            <option value="3">Short by Ratings</option>
-                        </select>
-                    </div>
-
                     <div class="shop_grid_product_area">
                         <div class="row justify-content-center">
                             @foreach($products as $product)
@@ -147,10 +121,9 @@
                                         <div class="product_image">
                                             <!-- Product Image -->
                                             <img class="normal_img"
-                                                 src="{{ asset('assets/frontend/img/product-img/new-1-back.png') }}"
-                                                 alt="">
-                                            <img class="hover_img" src="{{ asset('img/product-img/new-1.png') }}"
-                                                 alt="">
+                                                 src="{{ asset('products_images/'.$product->image) }}" alt="">
+                                            {{--                                            <img class="hover_img" src="{{ asset('img/product-img/new-1.png') }}"--}}
+                                            {{--                                                 alt="">--}}
 
                                             <!-- Product Badge -->
                                             <div class="product_badge">
@@ -161,13 +134,14 @@
                                             <div class="product_wishlist wishicon">
                                                 <form action="{{ route('wishlist.store') }}" method="POST">
                                                     @csrf
-                                                    <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                                    <button type="submit" class="wishlist-button {{ auth()->guard('user')->user()->wishlist->contains('product_id',$product->id) ? 'in-wishlist' : '' }}">
+                                                    <input type="hidden" name="product_id"
+                                                           value="{{ $product->id }}">
+                                                    <button type="submit"
+                                                            class="wishlist-button {{ auth()->guard('user')->user()->wishlist->contains('product_id',$product->id) ? 'in-wishlist' : '' }}">
                                                         <span><i class="icofont-heart"></i></span>
                                                     </button>
                                                 </form>
                                             </div>
-
 
 
                                         </div>
@@ -222,41 +196,51 @@
                 </div>
             </div>
             <script>
-                const wishlistButton = document.querySelector('.wishlist-button');
-                wishlistButton.addEventListener('click', function(event) {
+                $('.wishlist-button').click(function (event) {
                     event.preventDefault();
-                    const form = event.target.closest('form');
-                    const product_id = form.querySelector('input[name="product_id"]').value;
-                    const inWishlist = wishlistButton.classList.contains('in-wishlist');
-                    const method = inWishlist ? 'DELETE' : 'POST';
-                    const url = inWishlist ? '{{ route('wishlist.destroy', $product->id) }}' : '{{ route('wishlist.store') }}';
-                    fetch(url, {
-                        method: method,
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                        },
-                        body: JSON.stringify({
-                            product_id: product_id
-                        })
-                    }).then(response => {
-                        wishlistButton.classList.toggle('in-wishlist');
-                        if (response.ok) {
-                            return response.json();
-                        }
-                        throw new Error('Network response was not ok.');
-                    }).then(data => {
-                        console.log(data);
-                    }).catch(error => {
-                        console.error('There was a problem with the fetch operation:', error);
-                    });
+
+                    var form = $(this).closest('form');
+                    var product_id = form.find('input[name="product_id"]').val();
+
+                    if ($(this).hasClass('in-wishlist')) {
+                        $.ajax({
+                            url: '/wishlist/' + product_id,
+                            type: 'DELETE',
+                            data: {
+                                '_token': '{{ csrf_token() }}',
+                            },
+                            success: function (response) {
+                                if (response.success) {
+                                    form.find('.wishlist-button').removeClass('in-wishlist');
+                                } else {
+                                    alert(response.message);
+                                }
+                            },
+                            error: function (jqXHR, textStatus, errorThrown) {
+                                console.log(jqXHR);
+                                console.log(textStatus);
+                                console.log(errorThrown);
+                            }
+                        });
+                    } else {
+                        $.ajax({
+                            url: form.attr('action'),
+                            type: form.attr('method'),
+                            data: form.serialize(),
+                            success: function (response) {
+                                form.find('.wishlist-button').addClass('in-wishlist');
+                            },
+                            error: function (jqXHR, textStatus, errorThrown) {
+                                console.log(jqXHR);
+                                console.log(textStatus);
+                                console.log(errorThrown);
+                            }
+                        });
+                    }
                 });
+
+
             </script>
-
-
-
-
-
 
         </div>
     </section>

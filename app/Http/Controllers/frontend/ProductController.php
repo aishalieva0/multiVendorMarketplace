@@ -15,35 +15,11 @@ class ProductController extends Controller
     }
 
 
-
     public function cart()
     {
         return view('frontend.pages.cart');
     }
 
-//    public function addToCart($id)
-//    {
-//        $product = Product::find($id);
-//        $user_id = auth()->user()->id; // get the authenticated user ID
-//
-//        // Check if the product is already in the cart
-//        $cart = Cart::where('product_id', $id)->first();
-//        if ($cart) {
-//            $cart->quantity++;
-//            $cart->save();
-//        } else {
-//            // Create a new cart item
-//            $cart = new Cart();
-//            $cart->user_id = $user_id;
-//            $cart->vendor_id = $product->vendor_id;
-//            $cart->product_id = $id;
-//            $cart->quantity = 1;
-////        $cart->price = $product->price;
-////        $cart->image = $product->image;
-//            $cart->save();
-//        }
-//        return redirect()->back()->with('success', 'Product added to cart successfully!');
-//    }
 
     public function addToCart($id)
     {

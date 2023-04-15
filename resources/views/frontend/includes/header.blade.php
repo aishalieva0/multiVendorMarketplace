@@ -68,37 +68,6 @@
                         <span class="text">Welcome to Marketplace</span>
                     </div>
                 </div>
-                <div class="col-6">
-                    <div class="language-currency-dropdown d-flex align-items-center justify-content-end">
-                        {{--                        <!-- Language Dropdown -->--}}
-                        {{--                        <div class="language-dropdown">--}}
-                        {{--                            <div class="dropdown">--}}
-                        {{--                                <a class="btn btn-sm dropdown-toggle" href="#" role="button" id="dropdownMenu1"--}}
-                        {{--                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--}}
-                        {{--                                    English--}}
-                        {{--                                </a>--}}
-                        {{--                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">--}}
-                        {{--                                    <a class="dropdown-item" href="#">Bangla</a>--}}
-                        {{--                                    <a class="dropdown-item" href="#">Arabic</a>--}}
-                        {{--                                </div>--}}
-                        {{--                            </div>--}}
-                        {{--                        </div>--}}
-
-                        {{--                        <!-- Currency Dropdown -->--}}
-                        {{--                        <div class="currency-dropdown">--}}
-                        {{--                            <div class="dropdown">--}}
-                        {{--                                <a class="btn btn-sm dropdown-toggle" href="#" role="button" id="dropdownMenu2"--}}
-                        {{--                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--}}
-                        {{--                                    $ USD--}}
-                        {{--                                </a>--}}
-                        {{--                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">--}}
-                        {{--                                    <a class="dropdown-item" href="#">৳ BDT</a>--}}
-                        {{--                                    <a class="dropdown-item" href="#">€ Euro</a>--}}
-                        {{--                                </div>--}}
-                        {{--                            </div>--}}
-                        {{--                        </div>--}}
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -182,17 +151,15 @@
                         <!-- Cart -->
                         <div class="cart-area">
                             @if(session('cart'))
-                                @foreach(session('cart') as $id =>$product)
-                                    <div class="cart--btn">
-                                        <i class="icofont-cart"></i>
-                                        <span class="cart_quantity">{{$product['quantity']}}</span>
-                                    </div>
-
-                                    <!-- Cart Dropdown Content -->
-                                    @php $total_amount = 0; @endphp
-                                    <div class="cart-dropdown-content">
-                                        <ul class="cart-list">
-
+                                <div class="cart--btn">
+                                    <i class="icofont-cart"></i>
+                                    <span class="cart_quantity">{{count(session('cart'))}}</span>
+                                </div>
+                                <!-- Cart Dropdown Content -->
+                                @php $total_amount = 0; @endphp
+                                <div class="cart-dropdown-content">
+                                    <ul class="cart-list">
+                                        @foreach(session('cart') as $id =>$product)
                                             <li>
                                                 <div class="cart-item-desc">
                                                     <a href="#" class="image">
@@ -204,7 +171,8 @@
                                                         <a href="#">{{$product['title']}}</a>
                                                         <p>{{$product['quantity']}}x - <span class="price">{{$product['price']}}₼</span>
                                                             @php
-                                                                $total_amount += $product['price'] * $product['quantity'] @endphp
+                                                                $total_amount += $product['price'] * $product['quantity'];
+                                                            @endphp
                                                         </p>
                                                     </div>
                                                 </div>
@@ -218,32 +186,29 @@
                                                     </th>
                                                 </form>
                                             </li>
-                                            @endforeach
-
+                                        @endforeach
+                                    </ul>
+                                    <div class="cart-pricing my-4">
+                                        <ul>
+                                            <li>
+                                                <span>Total:</span>
+                                                <span>{{$total_amount}}</span>
+                                            </li>
                                         </ul>
-                                        <div class="cart-pricing my-4">
-                                            <ul>
-                                                <li>
-                                                    <span>Total:</span>
-                                                    <span>{{$total_amount}}</span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="cart-box">
-                                            <a href="checkout-1.html" class="btn btn-primary d-block">Checkout</a>
-                                        </div>
                                     </div>
-                                    @else
-                                        <div class="cart--btn">
-                                            <i class="icofont-cart"></i>
-                                        </div>
-                                    @endif
+                                    <div class="cart-box">
+                                        <a href="{{route('checkout.shipping')}}" class="btn btn-primary d-block">Checkout</a>
+                                    </div>
+                                </div>
+                            @else
+                                <div class="cart--btn">
+                                    <i class="icofont-cart"></i>
+                                </div>
+                            @endif
                         </div>
 
                         <!-- Account -->
                         <!-- when logged in -->
-
-
                         <div class="account-area">
                             @if(auth('user')->check())
                                 <div class="user-thumbnail">
@@ -252,7 +217,7 @@
                                 <ul class="user-meta-dropdown">
                                     <li class="user-title"><span>Hello,</span>
                                         {{--                                        @if(Auth::check() && Auth::user()->role_id == 3)--}}
-                                        {{--                                        {{ Auth::guard('user')->user()->name }}--}}
+                                        {{ Auth::guard('user')->user()->name }}
                                         {{--                                        @endif--}}
                                     </li>
                                     <li><a href="{{ asset('myaccount') }}">My Account</a></li>
@@ -274,12 +239,11 @@
                                 <ul class="user-meta-dropdown">
                                     <li class="user-title"><span>Hello,</span>
                                         {{--                                        @if(Auth::check() && Auth::user()->role_id == 2)--}}
-                                        {{--                                        {{ Auth::guard('vendor')->user()->name}}--}}
+                                                                                {{ Auth::guard('vendor')->user()->name}}
                                         {{--                                        @endif--}}
                                     </li>
                                     <li><a href="{{ asset('myaccount') }}">My Account</a></li>
-                                    <li><a href="#">Orders List</a></li>
-                                    <li><a href="{{ route('wishlist') }}">Wishlist</a></li>
+                                    <li><a href="#">Orders List</a></li>git ad
                                     <li>
                                         <form action="{{ route('logout') }}" method="POST">
                                             @csrf

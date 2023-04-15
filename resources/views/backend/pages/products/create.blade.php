@@ -71,7 +71,7 @@
 
                         <div class="form-group" hidden>
                             <label for="vendor_id">Vendor</label>
-                            <input type="text" name="vendor_id" value="{{ 1 }}" class="form-control" placeholder="Enter vendor" id="vendor_id">
+                            <input type="text" name="vendor_id" value="{{ 6 }}" class="form-control" placeholder="Enter vendor" id="vendor_id">
                         </div>
 
                         <div class="form-group">

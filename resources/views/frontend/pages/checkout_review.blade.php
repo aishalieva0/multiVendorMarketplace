@@ -9,7 +9,7 @@
                 <div class="col-12">
                     <h5>Checkout</h5>
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
                         <li class="breadcrumb-item active">Checkout</li>
                     </ol>
                 </div>
@@ -20,11 +20,9 @@
 
     <!-- Checkout Step Area -->
     <div class="checkout_steps_area">
-        <a class="complated" href="checkout-1.html"><i class="icofont-check-circled"></i> Login</a>
-        <a class="complated" href="checkout-2.html"><i class="icofont-check-circled"></i> Billing</a>
-        <a class="complated" href="checkout-3.html"><i class="icofont-check-circled"></i> Shipping</a>
-        <a class="complated" href="checkout-4.html"><i class="icofont-check-circled"></i> Payment</a>
-        <a class="active" href="checkout-5.html"><i class="icofont-check-circled"></i> Review</a>
+        <a class="complated" href="{{route('checkout.shipping')}}"><i class="icofont-check-circled"></i> Shipping</a>
+        <a class="active" href="{{route('checkout.review')}}"><i class="icofont-check-circled"></i> Review</a>
+        <a href="{{route('checkout.payment')}}"><i class="icofont-check-circled"></i> Payment</a>
     </div>
     <!-- Checkout Step Area -->
 
@@ -41,7 +39,6 @@
                                 <table class="table table-bordered mb-30">
                                     <thead>
                                     <tr>
-                                        <th scope="col">Edit</th>
                                         <th scope="col">Image</th>
                                         <th scope="col">Product</th>
                                         <th scope="col">Unit Price</th>
@@ -50,96 +47,29 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <th scope="row">
-                                            <a href="#" class="btn btn-primary"><i class="icofont-ui-edit"></i></a>
-                                        </th>
-                                        <td>
-                                            <img src="img/product-img/onsale-1.png" alt="Product">
-                                        </td>
-                                        <td>
-                                            <a href="#">Bluetooth Speaker</a>
-                                        </td>
-                                        <td>$9</td>
-                                        <td>
-                                            <div class="quantity">
-                                                <input type="number" class="qty-text" id="qty2" step="1" min="1" max="99" name="quantity" value="1">
-                                            </div>
-                                        </td>
-                                        <td>$9</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">
-                                            <a href="#" class="btn btn-primary"><i class="icofont-ui-edit"></i></a>
-                                        </th>
-                                        <td>
-                                            <img src="img/product-img/onsale-2.png" alt="Product">
-                                        </td>
-                                        <td>
-                                            <a href="#">Roof Lamp</a>
-                                        </td>
-                                        <td>$11</td>
-                                        <td>
-                                            <div class="quantity">
-                                                <input type="number" class="qty-text" id="qty3" step="1" min="1" max="99" name="quantity" value="1">
-                                            </div>
-                                        </td>
-                                        <td>$11</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">
-                                            <a href="#" class="btn btn-primary"><i class="icofont-ui-edit"></i></a>
-                                        </th>
-                                        <td>
-                                            <img src="img/product-img/onsale-6.png" alt="Product">
-                                        </td>
-                                        <td>
-                                            <a href="#">Cotton T-shirt</a>
-                                        </td>
-                                        <td>$6</td>
-                                        <td>
-                                            <div class="quantity">
-                                                <input type="number" class="qty-text" id="qty4" step="1" min="1" max="99" name="quantity" value="1">
-                                            </div>
-                                        </td>
-                                        <td>$6</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">
-                                            <a href="#" class="btn btn-primary"><i class="icofont-ui-edit"></i></a>
-                                        </th>
-                                        <td>
-                                            <img src="img/product-img/onsale-4.png" alt="Product">
-                                        </td>
-                                        <td>
-                                            <a href="#">Water Bottle</a>
-                                        </td>
-                                        <td>$17</td>
-                                        <td>
-                                            <div class="quantity">
-                                                <input type="number" class="qty-text" id="qty5" step="1" min="1" max="99" name="quantity" value="1">
-                                            </div>
-                                        </td>
-                                        <td>$17</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">
-                                            <a href="#" class="btn btn-primary"><i class="icofont-ui-edit"></i></a>
-                                        </th>
-                                        <td>
-                                            <img src="img/product-img/onsale-5.png" alt="Product">
-                                        </td>
-                                        <td>
-                                            <a href="#">Alka Sliper</a>
-                                        </td>
-                                        <td>$13</td>
-                                        <td>
-                                            <div class="quantity">
-                                                <input type="number" class="qty-text" id="qty6" step="1" min="1" max="99" name="quantity" value="1">
-                                            </div>
-                                        </td>
-                                        <td>$13</td>
-                                    </tr>
+                                    @php
+                                        $item_total = 0; //per item price
+                                        $sub_total = 0; //total order items price
+                                        $total_amount = 0; //total order price includes shipping fee
+                                    @endphp
+                                    @foreach($order_items as $item)
+                                        <tr>
+                                            <td>
+                                                <img src="{{asset('products_images/'.$item['image'])}}" alt="Product">
+                                            </td>
+                                            <td>
+                                                <a href="#">{{$item['title']}}</a>
+                                            </td>
+                                            <td>{{$item['price']}} ₼</td>
+                                            <td>{{$item['quantity']}}</td>
+                                            @php
+                                                $item_total = $item['price'] * $item['quantity'];
+                                                $sub_total += $item_total;
+                                            @endphp
+                                            <td>{{$item_total}} ₼</td>
+                                        </tr>
+                                    @endforeach
+
                                     </tbody>
                                 </table>
                             </div>
@@ -150,31 +80,35 @@
                 <div class="col-12 col-lg-7 ml-auto">
                     <div class="cart-total-area">
                         <h5 class="mb-3">Cart Totals</h5>
-                        <div class="table-responsive">
-                            <table class="table mb-0">
-                                <tbody>
-                                <tr>
-                                    <td>Sub Total</td>
-                                    <td>$56.00</td>
-                                </tr>
-                                <tr>
-                                    <td>Shipping</td>
-                                    <td>$10.00</td>
-                                </tr>
-                                <tr>
-                                    <td>VAT (10%)</td>
-                                    <td>$5.60</td>
-                                </tr>
-                                <tr>
-                                    <td>Total</td>
-                                    <td>$71.60</td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                        <form action="{{route('checkout.payment')}}" method="post" id="total-form">
+                            @csrf
+                            <div class="table-responsive">
+                                <table class="table mb-0">
+                                    <tbody>
+                                    <tr>
+                                        <td>Sub Total</td>
+                                        <td>{{$sub_total}} ₼</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Shipping</td>
+                                        <td>{{$shipping_fee}} ₼</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Total</td>
+                                        @php $total_amount=$sub_total+$shipping_fee; @endphp
+                                        <td>{{$total_amount}} ₼</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <input type="hidden" name="total_amount" value="{{$total_amount}}">
+                                <button type="submit" hidden>submit</button>
+                            </div>
+                        </form>
+
                         <div class="checkout_pagination d-flex justify-content-end mt-3">
-                            <a href="checkout-4.html" class="btn btn-primary mt-2 ml-2 d-none d-sm-inline-block">Go Back</a>
-                            <a href="checkout-complate.html" class="btn btn-primary mt-2 ml-2">Confirm</a>
+                            <a href="{{route('checkout.shipping')}}"
+                               class="btn btn-primary mt-2 ml-2 d-none d-sm-inline-block">Go Back</a>
+                            <a id="total-link" href="{{route('checkout.payment')}}" class="btn btn-primary mt-2 ml-2">Confirm</a>
                         </div>
                     </div>
                 </div>
@@ -182,5 +116,10 @@
         </div>
     </div>
     <!-- Checkout Area End -->
-
+    <script>
+        document.getElementById('total-link').addEventListener('click', function (event) {
+            event.preventDefault();
+            document.getElementById('total-form').submit();
+        });
+    </script>
 @endsection

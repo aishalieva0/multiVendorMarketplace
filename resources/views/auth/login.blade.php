@@ -51,10 +51,6 @@
 
                             <button type="submit" class="btn btn-primary btn-sm">Login</button>
                         </form>
-                        <!-- Forget Password -->
-                        <div class="forget_pass mt-15">
-                            <a href="#">Forget Password?</a>
-                        </div>
                     </div>
                 </div>
 

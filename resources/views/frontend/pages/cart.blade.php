@@ -52,7 +52,7 @@
                                                 </th>
                                             </form>
                                             <td>
-                                                <img src="{{ asset($product['image']) }}" alt="Product">
+                                                <img src="{{ asset('products_images/'.$product['image']) }}" alt="Product">
                                             </td>
                                             <td>
                                                 <a href="#">{{$product['title']}}</a>
@@ -73,7 +73,7 @@
                         </div>
                     </div>
 
-                    <div  class="col-6 col-lg-3">
+                    <div  class="col-10 col-lg-5 ml-auto">
                         <div  class="cart-total-area mb-30">
                             <h5 style="text-align: center" class="mb-3">Cart Totals</h5>
                             <div class="table-responsive">
@@ -85,6 +85,9 @@
                                     </tr>
                                     </tbody>
                                 </table>
+                            </div>
+                            <div class="cart-box">
+                                <a href="{{route('checkout.shipping')}}" class="btn btn-primary d-block">Checkout</a>
                             </div>
                         </div>
                     </div>
