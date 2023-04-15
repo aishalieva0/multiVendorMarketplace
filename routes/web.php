@@ -56,6 +56,7 @@ Route::prefix('admin')->group(function () {
         Route::resource('permissions', PermissonController::class);
         Route::resource('roles', RoleController::class);
         Route::resource('blogs', \App\Http\Controllers\backend\BlogController::class);
+        Route::resource('about_us', \App\Http\Controllers\backend\AboutUsController::class);
     });
 });
 

@@ -52,7 +52,7 @@
                                         </form>
 
                                         <td>
-                                            <img src="{{$item->product->image}}" alt="Product">
+                                            <img src="{{'products_images/'.$item->product->image}}" alt="Product">
                                         </td>
                                         <td>
                                             <a href="#">{{$item->product->title}}</a>

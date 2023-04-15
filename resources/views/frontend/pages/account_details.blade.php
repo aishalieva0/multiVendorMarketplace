@@ -25,8 +25,7 @@
                 <div class="col-12 col-lg-3">
                     <div class="my-account-navigation mb-50">
                         <ul>
-                            <li><a href="order-list.html">Orders</a></li>
-                            <li><a href="addresses.html">Addresses</a></li>
+                            <li><a href="order-list.html">Orders</a></li>git
                             <li class="active"><a href="{{ route('account') }}">Account Details</a></li>
                             <li><a href="{{ route('logout') }}">Logout</a></li>
                         </ul>

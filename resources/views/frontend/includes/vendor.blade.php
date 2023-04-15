@@ -24,8 +24,9 @@
                                             <div class="single_top_sellers">
                                                 <div class="top_seller_image">
                                                     <img src="{{ asset('image_images/' . $images[$i]->image) }}"
-                                                        alt="Top-Sellers">
+                                                         alt="Top-Sellers">
                                                 </div>
+
                                                 <div class="top_seller_desc">
                                                     <h5><b>{{ $vendor->shop_name }}</b></h5>
                                                     <h6>{{ $vendor->products_count }} Products </h6>
@@ -80,12 +81,7 @@
                                                                     class="icofont-heart"></i></a>
                                                         </div>
 
-                                                        <!-- Compare -->
-                                                        <div class="ts_product_compare">
-                                                            <a href="compare.html" data-toggle="tooltip"
-                                                                data-placement="top" title="Compare"><i
-                                                                    class="icofont-exchange"></i></a>
-                                                        </div>
+
 
                                                         <!-- Quick View -->
                                                         <div class="ts_product_quick_view">

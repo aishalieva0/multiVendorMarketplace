@@ -216,9 +216,7 @@
                                 </div>
                                 <ul class="user-meta-dropdown">
                                     <li class="user-title"><span>Hello,</span>
-                                        {{--                                        @if(Auth::check() && Auth::user()->role_id == 3)--}}
                                         {{ Auth::guard('user')->user()->name }}
-                                        {{--                                        @endif--}}
                                     </li>
                                     <li><a href="{{ asset('myaccount') }}">My Account</a></li>
                                     <li><a href="#">Orders List</a></li>
@@ -238,12 +236,10 @@
                                 </div>
                                 <ul class="user-meta-dropdown">
                                     <li class="user-title"><span>Hello,</span>
-                                        {{--                                        @if(Auth::check() && Auth::user()->role_id == 2)--}}
                                                                                 {{ Auth::guard('vendor')->user()->name}}
-                                        {{--                                        @endif--}}
                                     </li>
                                     <li><a href="{{ asset('myaccount') }}">My Account</a></li>
-                                    <li><a href="#">Orders List</a></li>git ad
+                                    <li><a href="#">Orders List</a></li>
                                     <li>
                                         <form action="{{ route('logout') }}" method="POST">
                                             @csrf
@@ -264,48 +260,6 @@
                                 </div>
                             @endif
                         </div>
-
-
-                        {{--                        <div class="account-area">--}}
-                        {{--                            @auth--}}
-                        {{--                                <div class="user-thumbnail">--}}
-                        {{--                                    <i class="icofont-user-alt-5"></i>--}}
-                        {{--                                </div>--}}
-                        {{--                                <ul class="user-meta-dropdown">--}}
-                        {{--                                    <li class="user-title"><span>Hello,</span>--}}
-                        {{--                                        @if(Auth::check() && Auth::user()->role_id == 3)--}}
-                        {{--                                            {{ Auth::guard('user')->user()->name }}--}}
-                        {{--                                        @elseif(Auth::check() && Auth::user()->role_id == 2)--}}
-                        {{--                                            {{ Auth::guard('vendor')->user()->name}}--}}
-                        {{--                                        @else--}}
-                        {{--                                            Guest--}}
-                        {{--                                        @endif--}}
-                        {{--                                    </li>--}}
-                        {{--                                    <li><a href="{{ asset('myaccount') }}">My Account</a></li>--}}
-                        {{--                                    <li><a href="#">Orders List</a></li>--}}
-                        {{--                                    <li><a href="#">Wishlist</a></li>--}}
-                        {{--                                    <li>--}}
-                        {{--                                        <form action="{{ route('logout') }}" method="POST">--}}
-                        {{--                                            @csrf--}}
-                        {{--                                            <button type="submit" class="btn btn-link"><i class="icofont-logout"></i>--}}
-                        {{--                                                Logout--}}
-                        {{--                                            </button>--}}
-                        {{--                                        </form>--}}
-                        {{--                                    </li>--}}
-                        {{--                                </ul>--}}
-                        {{--                            @else--}}
-                        {{--                                <!-- guest -->--}}
-                        {{--                                <div class="user-thumbnail">--}}
-                        {{--                                    <i class="icofont-user-alt-7"></i>--}}
-                        {{--                                </div>--}}
-                        {{--                                <div class="user-meta-dropdown">--}}
-                        {{--                                    <a href="{{ route('login') }}" class="mr-2">Login</a>--}}
-                        {{--                                    <a href="{{ route('register') }}">Register</a>--}}
-                        {{--                                </div>--}}
-                        {{--                            @endauth--}}
-                        {{--                        </div>--}}
-
-
                     </div>
                 </nav>
             </div>
